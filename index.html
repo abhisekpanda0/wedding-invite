@@ -2745,6 +2745,8 @@
         const entranceOffset = Math.min(56, blessingBox.width * .14);
 
         opening = animation.timeline({ onComplete: finish });
+        // Keep seal growth, gradual fade and shrine reveal synchronized at a gentler pace.
+        opening.timeScale(.75);
         opening
           .set(seal, { transformOrigin: "50% 43%" }, 0)
           .set(blessing, {
