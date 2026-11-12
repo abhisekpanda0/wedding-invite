@@ -626,8 +626,9 @@
       letter-spacing: 0; white-space: nowrap; text-align: center;
     }
     .couple-given-name {
-      display: block; width: 100%; font-weight: 700;
-      font-synthesis: weight; -webkit-text-stroke: 0;
+      display: block; width: 100%; font-weight: 400;
+      font-synthesis: none; -webkit-text-stroke: 0;
+      transform: translateX(-1.2cqw);
     }
     .couple-honorific {
       display: block; width: 100%; color: #6e3034;
@@ -2620,7 +2621,7 @@
     const fonts = ['500 20px "Cover Serif"', 'italic 600 24px "Invitation Display"'];
     if (scope === heroScope) fonts.push('600 20px "Cover Serif"');
     if (scope === blessingScope) fonts.push('700 24px "Blessing Odia"');
-    if (scope.classList.contains("couple")) fonts.push('700 60px "Couple Calligraphy"', 'italic 700 18px "Couple Text"', 'italic 400 16px "Couple Text"');
+    if (scope.classList.contains("couple")) fonts.push('400 60px "Couple Calligraphy"', 'italic 700 18px "Couple Text"', 'italic 400 16px "Couple Text"');
     if (scope.classList.contains("closing")) fonts.push('400 40px "Cover Calligraphy"');
     return fonts.map(font => document.fonts.load(font).catch(() => {}));
   }
