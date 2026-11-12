@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-cover-preparing>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -51,6 +51,38 @@
     *, *::before, *::after { box-sizing: border-box; }
     img[data-art]:not([data-art-ready]), img[data-motion-art]:not([data-art-ready]) { visibility: hidden; }
     [hidden] { display: none !important; }
+    .invitation-preloader { display: none; }
+    html[data-cover-preparing] .invitation-preloader {
+      position: fixed; inset: 0; z-index: 1000; display: grid; place-items: center;
+      background: radial-gradient(ellipse at center, #493020, #23140e 70%);
+    }
+    .invitation-preloader span,
+    .reference-scene:not([data-scene-ready])::after,
+    .blessing:not([data-scene-ready])::after,
+    .event-stage:not([data-scene-ready])::after {
+      content: ""; width: 34px; aspect-ratio: 1; border: 2px solid #ad7d3e;
+      border-top-color: #ffebbd; border-left-color: transparent; border-radius: 50%;
+    }
+    .reference-scene:not([data-scene-ready]) > *,
+    .blessing:not([data-scene-ready]) > *,
+    .event-stage:not([data-scene-ready]) > *,
+    .event-page:not([data-scene-ready]) > * { visibility: hidden !important; }
+    .reference-scene:not([data-scene-ready])::after,
+    .blessing:not([data-scene-ready])::after,
+    .event-stage:not([data-scene-ready])::after {
+      position: absolute; left: 50%; top: 50%; translate: -50% -50%; z-index: 5;
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .invitation-preloader span,
+      .reference-scene:not([data-scene-ready])::after,
+      .blessing:not([data-scene-ready])::after,
+      .event-stage:not([data-scene-ready])::after { animation: scene-preparing 1.2s linear infinite; }
+      .event-trigger[aria-busy="true"] .event-arrow::after,
+      .event-dot[aria-busy="true"]::after {
+        opacity: 1; border-left-color: transparent; animation: scene-preparing 1.2s linear infinite !important;
+      }
+    }
+    @keyframes scene-preparing { to { rotate: 360deg; } }
     body { margin: 0; background: radial-gradient(ellipse at 50% 20%, #493020, #23140e 42rem); }
     button, a { font: inherit; }
     button { color: inherit; }
@@ -1772,6 +1804,7 @@
   </style>
 </head>
 <body>
+  <div class="invitation-preloader" role="status" aria-label="Preparing your invitation"><span aria-hidden="true"></span></div>
   <main id="invitation">
     <section class="hero" data-phase="closed" aria-labelledby="invitation-title">
       <h1 class="sr-only" id="invitation-title">Wedding invitation for Abhisek Panda &amp; Anmol Tripathy</h1>
@@ -1826,31 +1859,31 @@
       <section class="blessing" id="blessing" aria-labelledby="blessing-title" hidden>
         <div class="blessing-frame">
           <div class="blessing-stage">
-              <img class="art blessing-layer" data-art="blessing-room" alt="" src="assets/aacee420b38ae725fbe1.webp" decoding="async" loading="lazy">
-              <img class="art blessing-layer" data-art="blessing-pillar-left" alt="" style="--layer-x:0.0%;--layer-y:42.1847%;--layer-width:13.2%" src="assets/016ec87e56b7a61826e4.webp" decoding="async" loading="lazy">
-              <img class="art blessing-layer" data-art="blessing-pillar-right" alt="" style="--layer-x:87.7%;--layer-y:42.2735%;--layer-width:12.3%" src="assets/1662e0e9e1a8bb4e6d11.webp" decoding="async" loading="lazy">
-              <img class="art blessing-layer blessing-canopy" data-art="blessing-canopy" alt="" style="--layer-x:0.0%;--layer-y:0.0%;--layer-width:100.0%" src="assets/3ff05b600404ab483d9b.webp" decoding="async" loading="lazy">
-              <img class="art blessing-layer blessing-garland blessing-garland--left" data-art="blessing-canopy" alt="" style="--layer-x:0.0%;--layer-y:0.0%;--layer-width:100.0%" src="assets/3ff05b600404ab483d9b.webp" decoding="async" loading="lazy">
-              <img class="art blessing-layer blessing-garland blessing-garland--right" data-art="blessing-canopy" alt="" style="--layer-x:0.0%;--layer-y:0.0%;--layer-width:100.0%" src="assets/3ff05b600404ab483d9b.webp" decoding="async" loading="lazy">
-              <img class="art blessing-layer idol" data-art="blessing-idol" alt="Lord Ganesha" style="--layer-x:20.5%;--layer-y:20.1599%;--layer-width:55.7%" src="assets/c996c00fba485bd27288.webp" decoding="async" loading="lazy">
-              <img class="art blessing-layer blessing-eyes blessing-eyes--awake" data-art="blessing-eyes-awake" alt="" style="--layer-x:40.39935%;--layer-y:35.77473%;--layer-width:18.80897%" src="assets/1b41e94846396501bb82.webp" decoding="async" loading="lazy">
-              <img class="art blessing-layer blessing-eyes blessing-eyes--closed" data-art="blessing-eyes-closed" alt="" style="--layer-x:40.39935%;--layer-y:35.77473%;--layer-width:18.80897%" src="assets/2d00f8834851fdc12891.webp" decoding="async" loading="lazy">
-              <img class="art blessing-layer" data-art="blessing-diya-left" alt="" style="--layer-x:13.1%;--layer-y:61.7229%;--layer-width:12.9%" src="assets/d2affb69c5e4e20a049d.webp" decoding="async" loading="lazy">
-              <img class="art blessing-layer" data-art="blessing-diya-right" alt="" style="--layer-x:75.3%;--layer-y:61.7229%;--layer-width:13.7%" src="assets/19c21033a158555b722c.webp" decoding="async" loading="lazy">
-              <img class="art blessing-layer blessing-flame flame-left" data-art="blessing-flame-left" alt="" style="--layer-x:18.5%;--layer-y:57.8153%;--layer-width:2.7%" src="assets/827a5c5ddb13a70cdc8e.webp" decoding="async" loading="lazy">
-              <img class="art blessing-layer blessing-flame flame-right" data-art="blessing-flame-right" alt="" style="--layer-x:80.3%;--layer-y:57.8153%;--layer-width:3.3%" src="assets/a16cb042e167bac5c171.webp" decoding="async" loading="lazy">
-              <img class="art blessing-layer blessing-offerings" data-art="blessing-offerings" alt="" style="--layer-x:19.9%;--layer-y:64.7425%;--layer-width:59.7%" src="assets/869e601cecccdc1bca2c.webp" decoding="async" loading="lazy">
-              <img class="art blessing-layer blessing-mushak" data-art="blessing-mushak" alt="Mushak, Ganesha’s mouse companion" style="--layer-x:66.6%;--layer-y:60.7%;--layer-width:10.7%" src="assets/4df5b3b28ae67ab0b254.webp" decoding="async" loading="lazy">
+              <img class="art blessing-layer" data-art="blessing-room" alt="" decoding="async">
+              <img class="art blessing-layer" data-art="blessing-pillar-left" alt="" style="--layer-x:0.0%;--layer-y:42.1847%;--layer-width:13.2%" decoding="async">
+              <img class="art blessing-layer" data-art="blessing-pillar-right" alt="" style="--layer-x:87.7%;--layer-y:42.2735%;--layer-width:12.3%" decoding="async">
+              <img class="art blessing-layer blessing-canopy" data-art="blessing-canopy" alt="" style="--layer-x:0.0%;--layer-y:0.0%;--layer-width:100.0%" decoding="async">
+              <img class="art blessing-layer blessing-garland blessing-garland--left" data-art="blessing-canopy" alt="" style="--layer-x:0.0%;--layer-y:0.0%;--layer-width:100.0%" decoding="async">
+              <img class="art blessing-layer blessing-garland blessing-garland--right" data-art="blessing-canopy" alt="" style="--layer-x:0.0%;--layer-y:0.0%;--layer-width:100.0%" decoding="async">
+              <img class="art blessing-layer idol" data-art="blessing-idol" alt="Lord Ganesha" style="--layer-x:20.5%;--layer-y:20.1599%;--layer-width:55.7%" decoding="async">
+              <img class="art blessing-layer blessing-eyes blessing-eyes--awake" data-art="blessing-eyes-awake" alt="" style="--layer-x:40.39935%;--layer-y:35.77473%;--layer-width:18.80897%" decoding="async">
+              <img class="art blessing-layer blessing-eyes blessing-eyes--closed" data-art="blessing-eyes-closed" alt="" style="--layer-x:40.39935%;--layer-y:35.77473%;--layer-width:18.80897%" decoding="async">
+              <img class="art blessing-layer" data-art="blessing-diya-left" alt="" style="--layer-x:13.1%;--layer-y:61.7229%;--layer-width:12.9%" decoding="async">
+              <img class="art blessing-layer" data-art="blessing-diya-right" alt="" style="--layer-x:75.3%;--layer-y:61.7229%;--layer-width:13.7%" decoding="async">
+              <img class="art blessing-layer blessing-flame flame-left" data-art="blessing-flame-left" alt="" style="--layer-x:18.5%;--layer-y:57.8153%;--layer-width:2.7%" decoding="async">
+              <img class="art blessing-layer blessing-flame flame-right" data-art="blessing-flame-right" alt="" style="--layer-x:80.3%;--layer-y:57.8153%;--layer-width:3.3%" decoding="async">
+              <img class="art blessing-layer blessing-offerings" data-art="blessing-offerings" alt="" style="--layer-x:19.9%;--layer-y:64.7425%;--layer-width:59.7%" decoding="async">
+              <img class="art blessing-layer blessing-mushak" data-art="blessing-mushak" alt="Mushak, Ganesha’s mouse companion" style="--layer-x:66.6%;--layer-y:60.7%;--layer-width:10.7%" decoding="async">
             <span class="blessing-glow" aria-hidden="true"></span>
             <span class="blessing-glow blessing-glow--right" aria-hidden="true"></span>
-            <img class="art blessing-petal" data-art="cover-petal-rose" alt="" style="--petal-x:32%;--petal-y:22.5%;--petal-size:3.2cqw;--petal-dx:8cqw;--petal-dy:52.14cqw;--petal-time:7.5s;--petal-delay:-1.25s" src="assets/9bc0f0582686c38532ff.webp" decoding="async" loading="lazy">
-            <img class="art blessing-petal" data-art="cover-petal-blush" alt="" style="--petal-x:63%;--petal-y:20.5%;--petal-size:3cqw;--petal-dx:-6cqw;--petal-dy:55cqw;--petal-time:8.4s;--petal-delay:-.7s" src="assets/37fcfbdf4fc93930da22.webp" decoding="async" loading="lazy">
-            <img class="art blessing-petal" data-art="cover-petal-curled" alt="" style="--petal-x:46%;--petal-y:13.2%;--petal-size:2.9cqw;--petal-dx:4.8cqw;--petal-dy:63.11cqw;--petal-time:8.1s;--petal-delay:.05s" src="assets/b86acefc063f0b4f0e96.webp" decoding="async" loading="lazy">
-            <img class="art blessing-petal" data-art="cover-petal-rose" alt="" style="--petal-x:25%;--petal-y:31%;--petal-size:3.3cqw;--petal-dx:6cqw;--petal-dy:43.91cqw;--petal-time:10.3s;--petal-delay:1.15s" src="assets/9bc0f0582686c38532ff.webp" decoding="async" loading="lazy">
-            <img class="art blessing-petal" data-art="cover-petal-curled" alt="" style="--petal-x:75%;--petal-y:27%;--petal-size:2.85cqw;--petal-dx:-8.8cqw;--petal-dy:48.1cqw;--petal-time:9.6s;--petal-delay:1.95s" src="assets/b86acefc063f0b4f0e96.webp" decoding="async" loading="lazy">
-            <img class="art blessing-petal" data-art="cover-petal-blush" alt="" style="--petal-x:55%;--petal-y:14.2%;--petal-size:2.85cqw;--petal-dx:-3cqw;--petal-dy:61.25cqw;--petal-time:10.8s;--petal-delay:2.7s" src="assets/37fcfbdf4fc93930da22.webp" decoding="async" loading="lazy">
+            <img class="art blessing-petal" data-art="cover-petal-rose" alt="" style="--petal-x:32%;--petal-y:22.5%;--petal-size:3.2cqw;--petal-dx:8cqw;--petal-dy:52.14cqw;--petal-time:7.5s;--petal-delay:-1.25s" decoding="async">
+            <img class="art blessing-petal" data-art="cover-petal-blush" alt="" style="--petal-x:63%;--petal-y:20.5%;--petal-size:3cqw;--petal-dx:-6cqw;--petal-dy:55cqw;--petal-time:8.4s;--petal-delay:-.7s" decoding="async">
+            <img class="art blessing-petal" data-art="cover-petal-curled" alt="" style="--petal-x:46%;--petal-y:13.2%;--petal-size:2.9cqw;--petal-dx:4.8cqw;--petal-dy:63.11cqw;--petal-time:8.1s;--petal-delay:.05s" decoding="async">
+            <img class="art blessing-petal" data-art="cover-petal-rose" alt="" style="--petal-x:25%;--petal-y:31%;--petal-size:3.3cqw;--petal-dx:6cqw;--petal-dy:43.91cqw;--petal-time:10.3s;--petal-delay:1.15s" decoding="async">
+            <img class="art blessing-petal" data-art="cover-petal-curled" alt="" style="--petal-x:75%;--petal-y:27%;--petal-size:2.85cqw;--petal-dx:-8.8cqw;--petal-dy:48.1cqw;--petal-time:9.6s;--petal-delay:1.95s" decoding="async">
+            <img class="art blessing-petal" data-art="cover-petal-blush" alt="" style="--petal-x:55%;--petal-y:14.2%;--petal-size:2.85cqw;--petal-dx:-3cqw;--petal-dy:61.25cqw;--petal-time:10.8s;--petal-delay:2.7s" decoding="async">
           </div>
-          <img class="art blessing-crown" data-art="blessing-crown" alt="" src="assets/69682092bf3ea562f6e9.webp" decoding="async" loading="lazy">
+          <img class="art blessing-crown" data-art="blessing-crown" alt="" decoding="async">
           <div class="blessing-panel" data-plaque-art="blessing-altar">
             <h2 class="blessing-title" id="blessing-title" lang="or" tabindex="-1">॥ ଓଁ ଶ୍ରୀ ପ୍ରଜାପତୟେ ନମଃ ॥</h2>
             <p>We cordially invite you and your family<br>to join us in celebrating the auspicious
@@ -1863,16 +1896,16 @@
         </div>
       </section>
       <div class="petal-field petal-field--near" aria-hidden="true">
-        <img class="art cover-petal" data-art="cover-petal-rose" alt="" style="--petal-x:4.8%;--petal-y:18%;--petal-size:clamp(10px,3.8vw,18px);--petal-drift:8px;--petal-time:15.2s;--petal-delay:-6.1s;--petal-opacity:.74" src="assets/9bc0f0582686c38532ff.webp" decoding="async" loading="lazy">
-        <img class="art cover-petal" data-art="cover-petal-curled" alt="" style="--petal-x:93%;--petal-y:21%;--petal-size:clamp(10px,3.7vw,18px);--petal-drift:6px;--petal-time:17.8s;--petal-delay:-10.2s;--petal-opacity:.72" src="assets/b86acefc063f0b4f0e96.webp" decoding="async" loading="lazy">
+        <img class="art cover-petal" data-art="cover-petal-rose" alt="" style="--petal-x:4.8%;--petal-y:18%;--petal-size:clamp(10px,3.8vw,18px);--petal-drift:8px;--petal-time:15.2s;--petal-delay:-6.1s;--petal-opacity:.74" decoding="async">
+        <img class="art cover-petal" data-art="cover-petal-curled" alt="" style="--petal-x:93%;--petal-y:21%;--petal-size:clamp(10px,3.7vw,18px);--petal-drift:6px;--petal-time:17.8s;--petal-delay:-10.2s;--petal-opacity:.72" decoding="async">
       </div>
     </section>
 
     <div class="details" id="details" hidden>
       <section class="reference-scene couple" id="celebrations" aria-label="The couple" tabindex="-1">
-        <img class="art reference-layer" data-art="couple-surface" alt="" src="assets/c917a853db5fc67b44e8.webp" decoding="async" loading="lazy">
-        <img class="art reference-layer" data-art="couple-surround" alt="" style="--layer-x:0.0%;--layer-y:0.0%;--layer-width:100.0%" src="assets/e392e7e3d71e7f6cfa49.webp" decoding="async" loading="lazy">
-        <img class="art reference-layer" data-art="couple-peacocks" alt="" style="--layer-x:0.0%;--layer-y:70.7856%;--layer-width:100.0%" src="assets/8e0d3efc0897ab4d1d2d.webp" decoding="async" loading="lazy">
+        <img class="art reference-layer" data-art="couple-surface" alt="" decoding="async">
+        <img class="art reference-layer" data-art="couple-surround" alt="" style="--layer-x:0.0%;--layer-y:0.0%;--layer-width:100.0%" decoding="async">
+        <img class="art reference-layer" data-art="couple-peacocks" alt="" style="--layer-x:0.0%;--layer-y:70.7856%;--layer-width:100.0%" decoding="async">
         <img class="art reference-layer" data-motion-art="couple-garlands-motion" alt="" style="--layer-x:21.8%;--layer-y:27.82324059%;--layer-width:61.4%" hidden>
         <img class="art reference-layer" data-motion-art="couple-peacocks-motion" alt="" style="--layer-x:0.0%;--layer-y:68.00327332%;--layer-width:100.0%" hidden>
         <div aria-hidden="true">
@@ -1883,11 +1916,11 @@
           <span class="couple-light" style="--x:66.2%;--y:32.1%;--time:5.5s;--delay:-2.4s"></span>
           <span class="couple-light" style="--x:74%;--y:45.5%;--time:7.2s;--delay:-4.7s"></span>
           <span class="couple-light" style="--x:29.2%;--y:49.4%;--time:6.5s;--delay:-1.8s"></span>
-          <img class="art couple-petal" data-art="cover-petal-rose" alt="" style="--x:32%;--y:24%;--size:2.2cqw;--drift:-15cqw;--time:10s;--delay:-1.2s" src="assets/9bc0f0582686c38532ff.webp" decoding="async" loading="lazy">
-          <img class="art couple-petal" data-art="cover-petal-blush" alt="" style="--x:68%;--y:24%;--size:2.4cqw;--drift:14cqw;--time:11.6s;--delay:-4s" src="assets/37fcfbdf4fc93930da22.webp" decoding="async" loading="lazy">
-          <img class="art couple-petal" data-art="cover-petal-curled" alt="" style="--x:25%;--y:35%;--size:2cqw;--drift:-10cqw;--time:12.8s;--delay:-3.6s" src="assets/b86acefc063f0b4f0e96.webp" decoding="async" loading="lazy">
-          <img class="art couple-petal" data-art="cover-petal-rose" alt="" style="--x:75%;--y:34%;--size:2.15cqw;--drift:10cqw;--time:11s;--delay:-7.3s" src="assets/9bc0f0582686c38532ff.webp" decoding="async" loading="lazy">
-          <img class="art couple-petal" data-art="cover-petal-blush" alt="" style="--x:36%;--y:20%;--size:1.9cqw;--drift:-16cqw;--time:13.7s;--delay:1.1s" src="assets/37fcfbdf4fc93930da22.webp" decoding="async" loading="lazy">
+          <img class="art couple-petal" data-art="cover-petal-rose" alt="" style="--x:32%;--y:24%;--size:2.2cqw;--drift:-15cqw;--time:10s;--delay:-1.2s" decoding="async">
+          <img class="art couple-petal" data-art="cover-petal-blush" alt="" style="--x:68%;--y:24%;--size:2.4cqw;--drift:14cqw;--time:11.6s;--delay:-4s" decoding="async">
+          <img class="art couple-petal" data-art="cover-petal-curled" alt="" style="--x:25%;--y:35%;--size:2cqw;--drift:-10cqw;--time:12.8s;--delay:-3.6s" decoding="async">
+          <img class="art couple-petal" data-art="cover-petal-rose" alt="" style="--x:75%;--y:34%;--size:2.15cqw;--drift:10cqw;--time:11s;--delay:-7.3s" decoding="async">
+          <img class="art couple-petal" data-art="cover-petal-blush" alt="" style="--x:36%;--y:20%;--size:1.9cqw;--drift:-16cqw;--time:13.7s;--delay:1.1s" decoding="async">
         </div>
         <div class="reference-copy couple-names">
           <h2 class="couple-person"><span class="couple-honorific">Ayushman</span><span class="couple-given-name">Abhisek</span></h2>
@@ -1900,22 +1933,22 @@
 
       <section class="reference-scene schedule" id="celebrations-timeline" aria-labelledby="schedule-title">
         <div class="schedule-architecture" aria-hidden="true">
-        <img class="art reference-layer" data-art="celebration-paper" alt="" style="--layer-x:0.0%;--layer-y:0.0%;--layer-width:100.0%" src="assets/6af778bd4d5e50da1c02.webp" decoding="async" loading="lazy">
-        <img class="art reference-layer" data-art="celebration-outer-arch" alt="" style="--layer-x:0.0%;--layer-y:0.0%;--layer-width:100.0%" src="assets/c3eba9bea56b06392d0f.webp" decoding="async" loading="lazy">
-        <img class="art reference-layer" data-art="celebration-outer-pillar-left" alt="" style="--layer-x:0.0%;--layer-y:24.660194174757283%;--layer-width:8.93909626719057%" src="assets/9b7959977656e764d98b.webp" decoding="async" loading="lazy">
-        <img class="art reference-layer" data-art="celebration-outer-pillar-right" alt="" style="--layer-x:91.06090373280944%;--layer-y:24.660194174757283%;--layer-width:8.93909626719057%" src="assets/62a3d02cb47bbcb94745.webp" decoding="async" loading="lazy">
-        <img class="art reference-layer" data-art="celebration-marble-steps" alt="" style="--layer-x:0.0%;--layer-y:91.90938511326861%;--layer-width:100.0%" src="assets/3cf3e1d6b5c044b26c45.webp" decoding="async" loading="lazy">
+        <img class="art reference-layer" data-art="celebration-paper" alt="" style="--layer-x:0.0%;--layer-y:0.0%;--layer-width:100.0%" decoding="async">
+        <img class="art reference-layer" data-art="celebration-outer-arch" alt="" style="--layer-x:0.0%;--layer-y:0.0%;--layer-width:100.0%" decoding="async">
+        <img class="art reference-layer" data-art="celebration-outer-pillar-left" alt="" style="--layer-x:0.0%;--layer-y:24.660194174757283%;--layer-width:8.93909626719057%" decoding="async">
+        <img class="art reference-layer" data-art="celebration-outer-pillar-right" alt="" style="--layer-x:91.06090373280944%;--layer-y:24.660194174757283%;--layer-width:8.93909626719057%" decoding="async">
+        <img class="art reference-layer" data-art="celebration-marble-steps" alt="" style="--layer-x:0.0%;--layer-y:91.90938511326861%;--layer-width:100.0%" decoding="async">
         </div>
         <h2 class="reference-copy reference-heading" id="schedule-title">The Celebrations</h2>
         <p class="reference-copy schedule-intro"><span>From family blessings to wedding vows,<br>we’d love to share every chapter with you.</span></p>
         <ol class="reference-copy events">
           <li class="event" data-event-tile="pindhani" style="--tile-x:10.903732809430256%;--tile-y:24.983818770226538%;--tile-width:39.09626719056975%;--tile-height:20.58252427184466%">
             <a class="event-trigger" href="#event-pindhani" aria-haspopup="dialog" data-event-link>
-              <img class="art celebration-part celebration-part--shade" data-art="celebration-pindhani-shade" alt="" style="--part-x:-6.532663316582915%;--part-y:-8.176100628930818%;--part-width:108.5427135678392%" src="assets/010c990fbf6c4c9c3eb4.webp" decoding="async" loading="lazy">
-              <img class="art celebration-part celebration-part--frame" data-art="celebration-pindhani-frame" alt="" style="--part-x:-1.0050251256281406%;--part-y:-1.2578616352201257%;--part-width:102.01005025125629%" src="assets/d32e564d7cb3c73c7267.webp" decoding="async" loading="lazy">
-              <img class="art celebration-part celebration-part--icon" data-art="celebration-pindhani-icon" alt="" style="--part-x:18.09045226130653%;--part-y:8.49056603773585%;--part-width:67.08542713567839%" src="assets/4a8fa3d69874bf23c7fb.webp" decoding="async" loading="lazy">
-              <img class="art celebration-part celebration-part--divider" data-art="celebration-pindhani-divider" alt="" style="--part-x:40.45226130653266%;--part-y:73.58490566037736%;--part-width:21.105527638190956%" src="assets/c7543b01ff53a947ca5c.webp" decoding="async" loading="lazy">
-              <img class="art celebration-part celebration-part--flowers" data-art="celebration-pindhani-flowers" alt="" style="--part-x:-3.0150753768844223%;--part-y:-2.20125786163522%;--part-width:37.437185929648244%" src="assets/48036044e50ef5babe2c.webp" decoding="async" loading="lazy">
+              <img class="art celebration-part celebration-part--shade" data-art="celebration-pindhani-shade" alt="" style="--part-x:-6.532663316582915%;--part-y:-8.176100628930818%;--part-width:108.5427135678392%" decoding="async">
+              <img class="art celebration-part celebration-part--frame" data-art="celebration-pindhani-frame" alt="" style="--part-x:-1.0050251256281406%;--part-y:-1.2578616352201257%;--part-width:102.01005025125629%" decoding="async">
+              <img class="art celebration-part celebration-part--icon" data-art="celebration-pindhani-icon" alt="" style="--part-x:18.09045226130653%;--part-y:8.49056603773585%;--part-width:67.08542713567839%" decoding="async">
+              <img class="art celebration-part celebration-part--divider" data-art="celebration-pindhani-divider" alt="" style="--part-x:40.45226130653266%;--part-y:73.58490566037736%;--part-width:21.105527638190956%" decoding="async">
+              <img class="art celebration-part celebration-part--flowers" data-art="celebration-pindhani-flowers" alt="" style="--part-x:-3.0150753768844223%;--part-y:-2.20125786163522%;--part-width:37.437185929648244%" decoding="async">
               <span class="event-name">Pindhani</span>
               <span class="event-summary"><time datetime="2027-01-27">27 Jan</time><span aria-hidden="true"> · </span>11:00 AM</span>
               <span class="event-arrow" aria-hidden="true">
@@ -1925,11 +1958,11 @@
           </li>
           <li class="event" data-event-tile="ring-sangeet" style="--tile-x:51.37524557956778%;--tile-y:24.983818770226538%;--tile-width:39.09626719056975%;--tile-height:20.58252427184466%">
             <a class="event-trigger" href="#event-ring-sangeet" aria-haspopup="dialog" data-event-link>
-              <img class="art celebration-part celebration-part--shade" data-art="celebration-ring-sangeet-shade" alt="" style="--part-x:-1.7587939698492463%;--part-y:-8.49056603773585%;--part-width:108.29145728643216%" src="assets/0d9f1680beeaf7d20c74.webp" decoding="async" loading="lazy">
-              <img class="art celebration-part celebration-part--frame" data-art="celebration-ring-sangeet-frame" alt="" style="--part-x:-1.0050251256281406%;--part-y:-1.2578616352201257%;--part-width:102.01005025125629%" src="assets/a2a1b816e0676a414cfa.webp" decoding="async" loading="lazy">
-              <img class="art celebration-part celebration-part--icon" data-art="celebration-ring-sangeet-icon" alt="" style="--part-x:15.326633165829145%;--part-y:12.89308176100629%;--part-width:68.09045226130654%" src="assets/c9179b1fc22d8d2ba77d.webp" decoding="async" loading="lazy">
-              <img class="art celebration-part celebration-part--divider" data-art="celebration-ring-sangeet-divider" alt="" style="--part-x:40.45226130653266%;--part-y:73.58490566037736%;--part-width:21.105527638190956%" src="assets/dbe27ae75195bd7a6f08.webp" decoding="async" loading="lazy">
-              <img class="art celebration-part celebration-part--flowers" data-art="celebration-ring-sangeet-flowers" alt="" style="--part-x:65.57788944723617%;--part-y:-1.5723270440251573%;--part-width:37.437185929648244%" src="assets/7b1a8d8ab2998c9f256c.webp" decoding="async" loading="lazy">
+              <img class="art celebration-part celebration-part--shade" data-art="celebration-ring-sangeet-shade" alt="" style="--part-x:-1.7587939698492463%;--part-y:-8.49056603773585%;--part-width:108.29145728643216%" decoding="async">
+              <img class="art celebration-part celebration-part--frame" data-art="celebration-ring-sangeet-frame" alt="" style="--part-x:-1.0050251256281406%;--part-y:-1.2578616352201257%;--part-width:102.01005025125629%" decoding="async">
+              <img class="art celebration-part celebration-part--icon" data-art="celebration-ring-sangeet-icon" alt="" style="--part-x:15.326633165829145%;--part-y:12.89308176100629%;--part-width:68.09045226130654%" decoding="async">
+              <img class="art celebration-part celebration-part--divider" data-art="celebration-ring-sangeet-divider" alt="" style="--part-x:40.45226130653266%;--part-y:73.58490566037736%;--part-width:21.105527638190956%" decoding="async">
+              <img class="art celebration-part celebration-part--flowers" data-art="celebration-ring-sangeet-flowers" alt="" style="--part-x:65.57788944723617%;--part-y:-1.5723270440251573%;--part-width:37.437185929648244%" decoding="async">
               <span class="event-name">Ring Ceremony<br>&amp; Sangeet</span>
               <span class="event-summary"><time datetime="2027-01-27">27 Jan</time><span aria-hidden="true"> · </span>5:00 PM</span>
               <span class="event-arrow" aria-hidden="true">
@@ -1939,11 +1972,11 @@
           </li>
           <li class="event" data-event-tile="haldi" style="--tile-x:10.903732809430256%;--tile-y:45.30744336569579%;--tile-width:39.09626719056975%;--tile-height:20.129449838187703%">
             <a class="event-trigger" href="#event-haldi" aria-haspopup="dialog" data-event-link>
-              <img class="art celebration-part celebration-part--shade" data-art="celebration-haldi-shade" alt="" style="--part-x:-6.532663316582915%;--part-y:3.215434083601286%;--part-width:108.5427135678392%" src="assets/220e4f53afb871f760c9.webp" decoding="async" loading="lazy">
-              <img class="art celebration-part celebration-part--frame" data-art="celebration-haldi-frame" alt="" style="--part-x:-1.0050251256281406%;--part-y:-1.2861736334405145%;--part-width:102.01005025125629%" src="assets/17a67f446eb0061e0097.webp" decoding="async" loading="lazy">
-              <img class="art celebration-part celebration-part--icon" data-art="celebration-haldi-icon" alt="" style="--part-x:15.829145728643216%;--part-y:3.536977491961415%;--part-width:59.2964824120603%" src="assets/de6c36d045ad57b36827.webp" decoding="async" loading="lazy">
-              <img class="art celebration-part celebration-part--divider" data-art="celebration-haldi-divider" alt="" style="--part-x:40.45226130653266%;--part-y:72.34726688102894%;--part-width:21.105527638190956%" src="assets/4ed560bb97c8223c92c9.webp" decoding="async" loading="lazy">
-              <img class="art celebration-part celebration-part--flowers" data-art="celebration-haldi-flowers" alt="" style="--part-x:-3.0150753768844223%;--part-y:-2.2508038585209005%;--part-width:37.437185929648244%" src="assets/999446cf594d0b569e3c.webp" decoding="async" loading="lazy">
+              <img class="art celebration-part celebration-part--shade" data-art="celebration-haldi-shade" alt="" style="--part-x:-6.532663316582915%;--part-y:3.215434083601286%;--part-width:108.5427135678392%" decoding="async">
+              <img class="art celebration-part celebration-part--frame" data-art="celebration-haldi-frame" alt="" style="--part-x:-1.0050251256281406%;--part-y:-1.2861736334405145%;--part-width:102.01005025125629%" decoding="async">
+              <img class="art celebration-part celebration-part--icon" data-art="celebration-haldi-icon" alt="" style="--part-x:15.829145728643216%;--part-y:3.536977491961415%;--part-width:59.2964824120603%" decoding="async">
+              <img class="art celebration-part celebration-part--divider" data-art="celebration-haldi-divider" alt="" style="--part-x:40.45226130653266%;--part-y:72.34726688102894%;--part-width:21.105527638190956%" decoding="async">
+              <img class="art celebration-part celebration-part--flowers" data-art="celebration-haldi-flowers" alt="" style="--part-x:-3.0150753768844223%;--part-y:-2.2508038585209005%;--part-width:37.437185929648244%" decoding="async">
               <span class="event-name">Haldi</span>
               <span class="event-summary"><time datetime="2027-01-28">28 Jan</time><span aria-hidden="true"> · </span>10:00 AM</span>
               <span class="event-arrow" aria-hidden="true">
@@ -1953,11 +1986,11 @@
           </li>
           <li class="event" data-event-tile="baranugamana" style="--tile-x:51.37524557956778%;--tile-y:45.30744336569579%;--tile-width:39.09626719056975%;--tile-height:20.129449838187703%">
             <a class="event-trigger" href="#event-baranugamana" aria-haspopup="dialog" data-event-link>
-              <img class="art celebration-part celebration-part--shade" data-art="celebration-baranugamana-shade" alt="" style="--part-x:-1.7587939698492463%;--part-y:3.215434083601286%;--part-width:108.5427135678392%" src="assets/ab3c7e362218e200e48d.webp" decoding="async" loading="lazy">
-              <img class="art celebration-part celebration-part--frame" data-art="celebration-baranugamana-frame" alt="" style="--part-x:-1.0050251256281406%;--part-y:-1.2861736334405145%;--part-width:102.01005025125629%" src="assets/ac1947edc878bf9c82e3.webp" decoding="async" loading="lazy">
-              <img class="art celebration-part celebration-part--icon" data-art="celebration-baranugamana-icon" alt="" style="--part-x:22.36180904522613%;--part-y:0.3215434083601286%;--part-width:51.75879396984924%" src="assets/c1d361fea0350ac20e25.webp" decoding="async" loading="lazy">
-              <img class="art celebration-part celebration-part--divider" data-art="celebration-baranugamana-divider" alt="" style="--part-x:40.45226130653266%;--part-y:72.34726688102894%;--part-width:21.105527638190956%" src="assets/9232a700f3ae2114451c.webp" decoding="async" loading="lazy">
-              <img class="art celebration-part celebration-part--flowers" data-art="celebration-baranugamana-flowers" alt="" style="--part-x:65.57788944723617%;--part-y:-2.2508038585209005%;--part-width:37.437185929648244%" src="assets/082104061bb2d22c3c4d.webp" decoding="async" loading="lazy">
+              <img class="art celebration-part celebration-part--shade" data-art="celebration-baranugamana-shade" alt="" style="--part-x:-1.7587939698492463%;--part-y:3.215434083601286%;--part-width:108.5427135678392%" decoding="async">
+              <img class="art celebration-part celebration-part--frame" data-art="celebration-baranugamana-frame" alt="" style="--part-x:-1.0050251256281406%;--part-y:-1.2861736334405145%;--part-width:102.01005025125629%" decoding="async">
+              <img class="art celebration-part celebration-part--icon" data-art="celebration-baranugamana-icon" alt="" style="--part-x:22.36180904522613%;--part-y:0.3215434083601286%;--part-width:51.75879396984924%" decoding="async">
+              <img class="art celebration-part celebration-part--divider" data-art="celebration-baranugamana-divider" alt="" style="--part-x:40.45226130653266%;--part-y:72.34726688102894%;--part-width:21.105527638190956%" decoding="async">
+              <img class="art celebration-part celebration-part--flowers" data-art="celebration-baranugamana-flowers" alt="" style="--part-x:65.57788944723617%;--part-y:-2.2508038585209005%;--part-width:37.437185929648244%" decoding="async">
               <span class="event-name">Baranugamana</span>
               <span class="event-summary"><time datetime="2027-01-28">28 Jan</time><span aria-hidden="true"> · </span>7:00 PM</span>
               <span class="event-arrow" aria-hidden="true">
@@ -1967,11 +2000,11 @@
           </li>
           <li class="event" data-event-tile="bibaha" style="--tile-x:10.903732809430256%;--tile-y:65.30744336569579%;--tile-width:39.09626719056975%;--tile-height:23.883495145631066%">
             <a class="event-trigger" href="#event-bibaha" aria-haspopup="dialog" data-event-link>
-              <img class="art celebration-part celebration-part--shade" data-art="celebration-bibaha-shade" alt="" style="--part-x:-6.78391959798995%;--part-y:2.168021680216802%;--part-width:108.79396984924622%" src="assets/7f1492a8fe390d772e70.webp" decoding="async" loading="lazy">
-              <img class="art celebration-part celebration-part--frame" data-art="celebration-bibaha-frame" alt="" style="--part-x:-1.0050251256281406%;--part-y:-1.084010840108401%;--part-width:102.01005025125629%" src="assets/c76df7e15c9d4de357eb.webp" decoding="async" loading="lazy">
-              <img class="art celebration-part celebration-part--icon" data-art="celebration-bibaha-icon" alt="" style="--part-x:15.075376884422111%;--part-y:5.420054200542006%;--part-width:70.85427135678393%" src="assets/bc551a00fc00429186d3.webp" decoding="async" loading="lazy">
-              <img class="art celebration-part celebration-part--divider" data-art="celebration-bibaha-divider" alt="" style="--part-x:40.45226130653266%;--part-y:71.54471544715447%;--part-width:21.105527638190956%" src="assets/a2cef0d541bb15958ae0.webp" decoding="async" loading="lazy">
-              <img class="art celebration-part celebration-part--flowers" data-art="celebration-bibaha-flowers" alt="" style="--part-x:-3.0150753768844223%;--part-y:-1.897018970189702%;--part-width:37.437185929648244%" src="assets/e067691772ff09dba0e7.webp" decoding="async" loading="lazy">
+              <img class="art celebration-part celebration-part--shade" data-art="celebration-bibaha-shade" alt="" style="--part-x:-6.78391959798995%;--part-y:2.168021680216802%;--part-width:108.79396984924622%" decoding="async">
+              <img class="art celebration-part celebration-part--frame" data-art="celebration-bibaha-frame" alt="" style="--part-x:-1.0050251256281406%;--part-y:-1.084010840108401%;--part-width:102.01005025125629%" decoding="async">
+              <img class="art celebration-part celebration-part--icon" data-art="celebration-bibaha-icon" alt="" style="--part-x:15.075376884422111%;--part-y:5.420054200542006%;--part-width:70.85427135678393%" decoding="async">
+              <img class="art celebration-part celebration-part--divider" data-art="celebration-bibaha-divider" alt="" style="--part-x:40.45226130653266%;--part-y:71.54471544715447%;--part-width:21.105527638190956%" decoding="async">
+              <img class="art celebration-part celebration-part--flowers" data-art="celebration-bibaha-flowers" alt="" style="--part-x:-3.0150753768844223%;--part-y:-1.897018970189702%;--part-width:37.437185929648244%" decoding="async">
               <span class="event-name">Bibaha<br>Panigrahana</span>
               <span class="event-summary"><time datetime="2027-01-28">28 Jan</time><span aria-hidden="true"> · </span><time datetime="2027-01-29T02:00:00+05:30">2:00 AM</time><small class="event-summary-note">Early hours of 29 Jan</small></span>
               <span class="event-arrow" aria-hidden="true">
@@ -1981,11 +2014,11 @@
           </li>
           <li class="event" data-event-tile="reception" style="--tile-x:51.37524557956778%;--tile-y:65.30744336569579%;--tile-width:39.09626719056975%;--tile-height:23.883495145631066%">
             <a class="event-trigger" href="#event-reception" aria-haspopup="dialog" data-event-link>
-              <img class="art celebration-part celebration-part--shade" data-art="celebration-reception-shade" alt="" style="--part-x:-1.7587939698492463%;--part-y:2.168021680216802%;--part-width:108.5427135678392%" src="assets/2126928897bdb16e5c3f.webp" decoding="async" loading="lazy">
-              <img class="art celebration-part celebration-part--frame" data-art="celebration-reception-frame" alt="" style="--part-x:-1.0050251256281406%;--part-y:-1.084010840108401%;--part-width:102.01005025125629%" src="assets/37a5c28db54cc34af0b6.webp" decoding="async" loading="lazy">
-              <img class="art celebration-part celebration-part--icon" data-art="celebration-reception-icon" alt="" style="--part-x:18.09045226130653%;--part-y:5.691056910569106%;--part-width:57.03517587939699%" src="assets/5dd711f01db735839412.webp" decoding="async" loading="lazy">
-              <img class="art celebration-part celebration-part--divider" data-art="celebration-reception-divider" alt="" style="--part-x:40.45226130653266%;--part-y:71.54471544715447%;--part-width:21.105527638190956%" src="assets/4eaad80893b47b3f618e.webp" decoding="async" loading="lazy">
-              <img class="art celebration-part celebration-part--flowers" data-art="celebration-reception-flowers" alt="" style="--part-x:65.57788944723617%;--part-y:-1.897018970189702%;--part-width:37.437185929648244%" src="assets/7eeaa392b6cd16dd90d3.webp" decoding="async" loading="lazy">
+              <img class="art celebration-part celebration-part--shade" data-art="celebration-reception-shade" alt="" style="--part-x:-1.7587939698492463%;--part-y:2.168021680216802%;--part-width:108.5427135678392%" decoding="async">
+              <img class="art celebration-part celebration-part--frame" data-art="celebration-reception-frame" alt="" style="--part-x:-1.0050251256281406%;--part-y:-1.084010840108401%;--part-width:102.01005025125629%" decoding="async">
+              <img class="art celebration-part celebration-part--icon" data-art="celebration-reception-icon" alt="" style="--part-x:18.09045226130653%;--part-y:5.691056910569106%;--part-width:57.03517587939699%" decoding="async">
+              <img class="art celebration-part celebration-part--divider" data-art="celebration-reception-divider" alt="" style="--part-x:40.45226130653266%;--part-y:71.54471544715447%;--part-width:21.105527638190956%" decoding="async">
+              <img class="art celebration-part celebration-part--flowers" data-art="celebration-reception-flowers" alt="" style="--part-x:65.57788944723617%;--part-y:-1.897018970189702%;--part-width:37.437185929648244%" decoding="async">
               <span class="event-name">Reception</span>
               <span class="event-summary"><time datetime="2027-01-29">29 Jan</time><span aria-hidden="true"> · </span><time datetime="2027-01-29T19:00:00+05:30">7:00 PM</time></span>
               <span class="event-arrow" aria-hidden="true">
@@ -1995,30 +2028,30 @@
           </li>
         </ol>
         <div class="schedule-ornaments" aria-hidden="true">
-        <img class="art reference-layer" data-art="celebration-heading-divider" alt="" style="--layer-x:35.46168958742633%;--layer-y:17.60517799352751%;--layer-width:30.25540275049116%" src="assets/ad7af953dbc971ed6d93.webp" decoding="async" loading="lazy">
-        <img class="art reference-layer" data-art="celebration-top-flowers-left" alt="" style="--layer-x:0.0%;--layer-y:0.0%;--layer-width:49.70530451866405%" src="assets/bd951189e79c649264fa.webp" decoding="async" loading="lazy">
-        <img class="art reference-layer" data-art="celebration-top-flowers-right" alt="" style="--layer-x:50.58939096267191%;--layer-y:0.0%;--layer-width:49.41060903732809%" src="assets/03ce8d78eda8316f6dd8.webp" decoding="async" loading="lazy">
-        <img class="art reference-layer" data-art="celebration-side-vine-left" alt="" style="--layer-x:0.0%;--layer-y:20.388349514563107%;--layer-width:8.349705304518665%" src="assets/0bf42fa46855f4b48c25.webp" decoding="async" loading="lazy">
-        <img class="art reference-layer" data-art="celebration-side-vine-right" alt="" style="--layer-x:91.55206286836935%;--layer-y:20.388349514563107%;--layer-width:8.447937131630649%" src="assets/cb006f08e7b6e5f0c057.webp" decoding="async" loading="lazy">
-        <img class="art reference-layer celebration-lantern" data-art="celebration-lantern-center" alt="" style="--layer-x:47.74066797642436%;--layer-y:1.4239482200647249%;--layer-width:5.304518664047151%" src="assets/b31b961d6a7f8e77e7de.webp" decoding="async" loading="lazy">
-        <img class="art reference-layer celebration-lantern" data-art="celebration-lantern-left-inner" alt="" style="--layer-x:35.16699410609037%;--layer-y:6.343042071197411%;--layer-width:5.697445972495088%" src="assets/9030f1cbe930c45f8630.webp" decoding="async" loading="lazy">
-        <img class="art reference-layer celebration-lantern" data-art="celebration-lantern-right-inner" alt="" style="--layer-x:61.10019646365422%;--layer-y:6.343042071197411%;--layer-width:4.616895874263261%" src="assets/22376b1db12d76965afd.webp" decoding="async" loading="lazy">
-        <img class="art reference-layer celebration-lantern" data-art="celebration-lantern-left-outer" alt="" style="--layer-x:12.86836935166994%;--layer-y:14.239482200647249%;--layer-width:6.18860510805501%" src="assets/29e1aca5407a4b0a935f.webp" decoding="async" loading="lazy">
-        <img class="art reference-layer celebration-lantern" data-art="celebration-lantern-right-outer" alt="" style="--layer-x:82.5147347740668%;--layer-y:14.239482200647249%;--layer-width:6.18860510805501%" src="assets/c1a067f35d25d24acfa6.webp" decoding="async" loading="lazy">
-        <img class="art reference-layer" data-art="celebration-steps-flowers-left" alt="" style="--layer-x:0.0%;--layer-y:89.90291262135922%;--layer-width:25.04911591355599%" src="assets/427e6c3f37102fbb6991.webp" decoding="async" loading="lazy">
-        <img class="art reference-layer" data-art="celebration-steps-flowers-right" alt="" style="--layer-x:74.950884086444%;--layer-y:89.90291262135922%;--layer-width:25.04911591355599%" src="assets/54e0b044731cbb48d997.webp" decoding="async" loading="lazy">
-        <img class="art reference-layer" data-art="celebration-peacock-left" alt="" style="--layer-x:0.0%;--layer-y:80.06472491909385%;--layer-width:15.12770137524558%" src="assets/62f12c6f72b162ee0e7a.webp" decoding="async" loading="lazy">
-        <img class="art reference-layer" data-art="celebration-peacock-right" alt="" style="--layer-x:84.87229862475442%;--layer-y:80.06472491909385%;--layer-width:15.12770137524558%" src="assets/fced99282cd21cde9b05.webp" decoding="async" loading="lazy">
+        <img class="art reference-layer" data-art="celebration-heading-divider" alt="" style="--layer-x:35.46168958742633%;--layer-y:17.60517799352751%;--layer-width:30.25540275049116%" decoding="async">
+        <img class="art reference-layer" data-art="celebration-top-flowers-left" alt="" style="--layer-x:0.0%;--layer-y:0.0%;--layer-width:49.70530451866405%" decoding="async">
+        <img class="art reference-layer" data-art="celebration-top-flowers-right" alt="" style="--layer-x:50.58939096267191%;--layer-y:0.0%;--layer-width:49.41060903732809%" decoding="async">
+        <img class="art reference-layer" data-art="celebration-side-vine-left" alt="" style="--layer-x:0.0%;--layer-y:20.388349514563107%;--layer-width:8.349705304518665%" decoding="async">
+        <img class="art reference-layer" data-art="celebration-side-vine-right" alt="" style="--layer-x:91.55206286836935%;--layer-y:20.388349514563107%;--layer-width:8.447937131630649%" decoding="async">
+        <img class="art reference-layer celebration-lantern" data-art="celebration-lantern-center" alt="" style="--layer-x:47.74066797642436%;--layer-y:1.4239482200647249%;--layer-width:5.304518664047151%" decoding="async">
+        <img class="art reference-layer celebration-lantern" data-art="celebration-lantern-left-inner" alt="" style="--layer-x:35.16699410609037%;--layer-y:6.343042071197411%;--layer-width:5.697445972495088%" decoding="async">
+        <img class="art reference-layer celebration-lantern" data-art="celebration-lantern-right-inner" alt="" style="--layer-x:61.10019646365422%;--layer-y:6.343042071197411%;--layer-width:4.616895874263261%" decoding="async">
+        <img class="art reference-layer celebration-lantern" data-art="celebration-lantern-left-outer" alt="" style="--layer-x:12.86836935166994%;--layer-y:14.239482200647249%;--layer-width:6.18860510805501%" decoding="async">
+        <img class="art reference-layer celebration-lantern" data-art="celebration-lantern-right-outer" alt="" style="--layer-x:82.5147347740668%;--layer-y:14.239482200647249%;--layer-width:6.18860510805501%" decoding="async">
+        <img class="art reference-layer" data-art="celebration-steps-flowers-left" alt="" style="--layer-x:0.0%;--layer-y:89.90291262135922%;--layer-width:25.04911591355599%" decoding="async">
+        <img class="art reference-layer" data-art="celebration-steps-flowers-right" alt="" style="--layer-x:74.950884086444%;--layer-y:89.90291262135922%;--layer-width:25.04911591355599%" decoding="async">
+        <img class="art reference-layer" data-art="celebration-peacock-left" alt="" style="--layer-x:0.0%;--layer-y:80.06472491909385%;--layer-width:15.12770137524558%" decoding="async">
+        <img class="art reference-layer" data-art="celebration-peacock-right" alt="" style="--layer-x:84.87229862475442%;--layer-y:80.06472491909385%;--layer-width:15.12770137524558%" decoding="async">
         <img class="art reference-layer" data-motion-art="celebration-peacock-left-motion" alt="" style="--layer-x:-1.1787819253438114%;--layer-y:79.28802588996764%;--layer-width:17.4852652259332%" hidden>
         <img class="art reference-layer" data-motion-art="celebration-peacock-right-motion" alt="" style="--layer-x:83.69351669941061%;--layer-y:79.28802588996764%;--layer-width:17.4852652259332%" hidden>
         </div>
         <div class="schedule-petals" aria-hidden="true">
-          <img class="art celebration-petal" data-art="cover-petal-rose" alt="" style="--x:20%;--y:5%;--size:1.9cqw;--drift:-12cqw;--fall:115cqw;--time:15.6s;--delay:-6.4s" src="assets/9bc0f0582686c38532ff.webp" decoding="async" loading="lazy">
-          <img class="art celebration-petal" data-art="cover-petal-blush" alt="" style="--x:80%;--y:5%;--size:1.7cqw;--drift:12cqw;--fall:119cqw;--time:17.4s;--delay:-11.8s" src="assets/37fcfbdf4fc93930da22.webp" decoding="async" loading="lazy">
-          <img class="art celebration-petal" data-art="cover-petal-curled" alt="" style="--x:44%;--y:3%;--size:1.8cqw;--drift:6cqw;--fall:129cqw;--time:18.7s;--delay:-2.5s" src="assets/b86acefc063f0b4f0e96.webp" decoding="async" loading="lazy">
-          <img class="art celebration-petal" data-art="cover-petal-rose" alt="" style="--x:56%;--y:3%;--size:1.6cqw;--drift:-6cqw;--fall:125cqw;--time:16.9s;--delay:-9.1s" src="assets/9bc0f0582686c38532ff.webp" decoding="async" loading="lazy">
-          <img class="art celebration-petal" data-art="cover-petal-blush" alt="" style="--x:10%;--y:19%;--size:1.8cqw;--drift:-4cqw;--fall:90cqw;--time:14.8s;--delay:-3.7s" src="assets/37fcfbdf4fc93930da22.webp" decoding="async" loading="lazy">
-          <img class="art celebration-petal" data-art="cover-petal-curled" alt="" style="--x:90%;--y:19%;--size:1.7cqw;--drift:4cqw;--fall:94cqw;--time:17.9s;--delay:-13.4s" src="assets/b86acefc063f0b4f0e96.webp" decoding="async" loading="lazy">
+          <img class="art celebration-petal" data-art="cover-petal-rose" alt="" style="--x:20%;--y:5%;--size:1.9cqw;--drift:-12cqw;--fall:115cqw;--time:15.6s;--delay:-6.4s" decoding="async">
+          <img class="art celebration-petal" data-art="cover-petal-blush" alt="" style="--x:80%;--y:5%;--size:1.7cqw;--drift:12cqw;--fall:119cqw;--time:17.4s;--delay:-11.8s" decoding="async">
+          <img class="art celebration-petal" data-art="cover-petal-curled" alt="" style="--x:44%;--y:3%;--size:1.8cqw;--drift:6cqw;--fall:129cqw;--time:18.7s;--delay:-2.5s" decoding="async">
+          <img class="art celebration-petal" data-art="cover-petal-rose" alt="" style="--x:56%;--y:3%;--size:1.6cqw;--drift:-6cqw;--fall:125cqw;--time:16.9s;--delay:-9.1s" decoding="async">
+          <img class="art celebration-petal" data-art="cover-petal-blush" alt="" style="--x:10%;--y:19%;--size:1.8cqw;--drift:-4cqw;--fall:90cqw;--time:14.8s;--delay:-3.7s" decoding="async">
+          <img class="art celebration-petal" data-art="cover-petal-curled" alt="" style="--x:90%;--y:19%;--size:1.7cqw;--drift:4cqw;--fall:94cqw;--time:17.9s;--delay:-13.4s" decoding="async">
         </div>
         <div class="schedule-lights" aria-hidden="true">
           <span class="schedule-light" style="--x:15.9%;--y:19%;--time:5.9s;--delay:-3s"></span>
@@ -2036,37 +2069,37 @@
 
       <section class="reference-scene closing" aria-labelledby="closing-title">
         <div class="closing-artwork" aria-hidden="true">
-        <img class="art reference-layer" data-art="closing-pavilion-paper" alt="" style="--layer-x:0.0%;--layer-y:0.0%;--layer-width:100.0%" src="assets/a29f86786b315d816aa5.webp" decoding="async" loading="lazy">
-        <img class="art reference-layer" data-art="closing-pavilion-arch" alt="" style="--layer-x:0.0%;--layer-y:0.0%;--layer-width:100.0%" src="assets/a56c31eb031b7796c0df.webp" decoding="async" loading="lazy">
-        <img class="art reference-layer" data-art="closing-pavilion-column-left" alt="" style="--layer-x:0.0%;--layer-y:23.2421875%;--layer-width:12.890625%" src="assets/6763ff4ba399cb0c7692.webp" decoding="async" loading="lazy">
-        <img class="art reference-layer" data-art="closing-pavilion-column-right" alt="" style="--layer-x:87.109375%;--layer-y:23.2421875%;--layer-width:12.890625%" src="assets/54d57faffc0454a47394.webp" decoding="async" loading="lazy">
-        <img class="art reference-layer" data-art="closing-pavilion-marble-plinth" alt="" style="--layer-x:0.0%;--layer-y:91.015625%;--layer-width:100.0%" src="assets/ab5aad862561655b19cf.webp" decoding="async" loading="lazy">
-        <img class="art reference-layer" data-art="closing-pavilion-left-chain" alt="" style="--layer-x:29.98046875%;--layer-y:9.635416666666666%;--layer-width:5.2734375%" src="assets/a9be3525b20051759adb.webp" decoding="async" loading="lazy">
-        <img class="art reference-layer" data-art="closing-pavilion-right-chain" alt="" style="--layer-x:64.74609375%;--layer-y:9.635416666666666%;--layer-width:5.2734375%" src="assets/7fcf4d7381b768669920.webp" decoding="async" loading="lazy">
-        <img class="art reference-layer" data-art="closing-pavilion-lotus" alt="" style="--layer-x:16.69921875%;--layer-y:75.84635416666667%;--layer-width:66.6015625%" src="assets/671072980595379e281d.webp" decoding="async" loading="lazy">
-        <img class="art reference-layer" data-art="closing-pavilion-bottom-rose-left" alt="" style="--layer-x:0.0%;--layer-y:75.91145833333333%;--layer-width:26.171875%" src="assets/a735dab0e55149de7a0a.webp" decoding="async" loading="lazy">
-        <img class="art reference-layer" data-art="closing-pavilion-bottom-rose-right" alt="" style="--layer-x:73.92578125%;--layer-y:75.91145833333333%;--layer-width:26.07421875%" src="assets/c64beb0a1c23d553721c.webp" decoding="async" loading="lazy">
-        <img class="art reference-layer" data-art="closing-pavilion-rose-divider" alt="" style="--layer-x:27.34375%;--layer-y:45.1171875%;--layer-width:45.1171875%" src="assets/d86ed912bb558d19aacb.webp" decoding="async" loading="lazy">
-        <img class="art reference-layer" data-art="closing-pavilion-venue-rule-left" alt="" style="--layer-x:32.8125%;--layer-y:40.559895833333336%;--layer-width:8.59375%" src="assets/ce1264bf1f926d837afb.webp" decoding="async" loading="lazy">
-        <img class="art reference-layer" data-art="closing-pavilion-venue-rule-right" alt="" style="--layer-x:58.59375%;--layer-y:40.559895833333336%;--layer-width:8.49609375%" src="assets/c91a30bb62a4934dc712.webp" decoding="async" loading="lazy">
-        <img class="art reference-layer" data-art="closing-pavilion-venue-underline" alt="" style="--layer-x:23.6328125%;--layer-y:45.3125%;--layer-width:52.5390625%" src="assets/21a60bff5c4f57920fde.webp" decoding="async" loading="lazy">
-        <img class="art reference-layer" data-art="closing-pavilion-family-rule" alt="" style="--layer-x:38.37890625%;--layer-y:61.5234375%;--layer-width:23.2421875%" src="assets/dfad7fdf9667ce88f752.webp" decoding="async" loading="lazy">
-        <img class="art reference-layer" data-art="closing-pavilion-contact-rule" alt="" style="--layer-x:37.109375%;--layer-y:72.00520833333333%;--layer-width:25.78125%" src="assets/884933dec7309dc5adf7.webp" decoding="async" loading="lazy">
-        <img class="art reference-layer" data-art="closing-pavilion-contact-diamond" alt="" style="--layer-x:48.2421875%;--layer-y:74.609375%;--layer-width:3.515625%" src="assets/54105ede208cd3ab3639.webp" decoding="async" loading="lazy">
-        <img class="art reference-layer" data-art="closing-pavilion-outer-drop-left" alt="" style="--layer-x:4.00390625%;--layer-y:21.354166666666668%;--layer-width:4.00390625%" src="assets/f43d82c236e4b1c8db17.webp" decoding="async" loading="lazy">
-        <img class="art reference-layer" data-art="closing-pavilion-outer-drop-right" alt="" style="--layer-x:91.9921875%;--layer-y:21.354166666666668%;--layer-width:4.00390625%" src="assets/0f0882e03995b311e52a.webp" decoding="async" loading="lazy">
-        <img class="art reference-layer" data-art="closing-pavilion-long-rose-drop-left" alt="" style="--layer-x:4.19921875%;--layer-y:13.736979166666666%;--layer-width:7.91015625%" src="assets/7cadb384f1eca9e37615.webp" decoding="async" loading="lazy">
-        <img class="art reference-layer" data-art="closing-pavilion-long-rose-drop-right" alt="" style="--layer-x:87.890625%;--layer-y:13.736979166666666%;--layer-width:7.91015625%" src="assets/f536837c18f9d9f88134.webp" decoding="async" loading="lazy">
-        <img class="art reference-layer" data-art="closing-pavilion-middle-drop-left" alt="" style="--layer-x:8.69140625%;--layer-y:12.565104166666666%;--layer-width:8.59375%" src="assets/431a67c35f18c45c9418.webp" decoding="async" loading="lazy">
-        <img class="art reference-layer" data-art="closing-pavilion-middle-drop-right" alt="" style="--layer-x:82.71484375%;--layer-y:12.565104166666666%;--layer-width:8.59375%" src="assets/590c6418fec7dffabe20.webp" decoding="async" loading="lazy">
-        <img class="art reference-layer" data-art="closing-pavilion-high-rose-drop-left" alt="" style="--layer-x:12.890625%;--layer-y:11.783854166666666%;--layer-width:4.6875%" src="assets/6d2b9716d3a52cc9ec3c.webp" decoding="async" loading="lazy">
-        <img class="art reference-layer" data-art="closing-pavilion-high-rose-drop-right" alt="" style="--layer-x:82.421875%;--layer-y:11.783854166666666%;--layer-width:4.6875%" src="assets/6248cd86865831ae4a67.webp" decoding="async" loading="lazy">
-        <img class="art reference-layer" data-art="closing-pavilion-inner-rose-drop-left" alt="" style="--layer-x:12.98828125%;--layer-y:17.578125%;--layer-width:5.37109375%" src="assets/d896ab9043af1ae655f3.webp" decoding="async" loading="lazy">
-        <img class="art reference-layer" data-art="closing-pavilion-inner-rose-drop-right" alt="" style="--layer-x:81.640625%;--layer-y:17.578125%;--layer-width:5.37109375%" src="assets/3048219a749357c698a6.webp" decoding="async" loading="lazy">
-        <img class="art reference-layer" data-art="closing-pavilion-crystal-drop-left" alt="" style="--layer-x:16.69921875%;--layer-y:13.932291666666666%;--layer-width:4.39453125%" src="assets/e5ffd331ed5056cd4825.webp" decoding="async" loading="lazy">
-        <img class="art reference-layer" data-art="closing-pavilion-crystal-drop-right" alt="" style="--layer-x:78.90625%;--layer-y:13.932291666666666%;--layer-width:4.39453125%" src="assets/12d8cf2a2ad3e1374516.webp" decoding="async" loading="lazy">
-        <img class="art reference-layer" data-art="closing-pavilion-canopy-rose-left" alt="" style="--layer-x:0.0%;--layer-y:0.0%;--layer-width:49.12109375%" src="assets/387102cd41bc79feb4b2.webp" decoding="async" loading="lazy">
-        <img class="art reference-layer" data-art="closing-pavilion-canopy-rose-right" alt="" style="--layer-x:50.87890625%;--layer-y:0.0%;--layer-width:49.12109375%" src="assets/3ddd750fb9019f0db69b.webp" decoding="async" loading="lazy">
+        <img class="art reference-layer" data-art="closing-pavilion-paper" alt="" style="--layer-x:0.0%;--layer-y:0.0%;--layer-width:100.0%" decoding="async">
+        <img class="art reference-layer" data-art="closing-pavilion-arch" alt="" style="--layer-x:0.0%;--layer-y:0.0%;--layer-width:100.0%" decoding="async">
+        <img class="art reference-layer" data-art="closing-pavilion-column-left" alt="" style="--layer-x:0.0%;--layer-y:23.2421875%;--layer-width:12.890625%" decoding="async">
+        <img class="art reference-layer" data-art="closing-pavilion-column-right" alt="" style="--layer-x:87.109375%;--layer-y:23.2421875%;--layer-width:12.890625%" decoding="async">
+        <img class="art reference-layer" data-art="closing-pavilion-marble-plinth" alt="" style="--layer-x:0.0%;--layer-y:91.015625%;--layer-width:100.0%" decoding="async">
+        <img class="art reference-layer" data-art="closing-pavilion-left-chain" alt="" style="--layer-x:29.98046875%;--layer-y:9.635416666666666%;--layer-width:5.2734375%" decoding="async">
+        <img class="art reference-layer" data-art="closing-pavilion-right-chain" alt="" style="--layer-x:64.74609375%;--layer-y:9.635416666666666%;--layer-width:5.2734375%" decoding="async">
+        <img class="art reference-layer" data-art="closing-pavilion-lotus" alt="" style="--layer-x:16.69921875%;--layer-y:75.84635416666667%;--layer-width:66.6015625%" decoding="async">
+        <img class="art reference-layer" data-art="closing-pavilion-bottom-rose-left" alt="" style="--layer-x:0.0%;--layer-y:75.91145833333333%;--layer-width:26.171875%" decoding="async">
+        <img class="art reference-layer" data-art="closing-pavilion-bottom-rose-right" alt="" style="--layer-x:73.92578125%;--layer-y:75.91145833333333%;--layer-width:26.07421875%" decoding="async">
+        <img class="art reference-layer" data-art="closing-pavilion-rose-divider" alt="" style="--layer-x:27.34375%;--layer-y:45.1171875%;--layer-width:45.1171875%" decoding="async">
+        <img class="art reference-layer" data-art="closing-pavilion-venue-rule-left" alt="" style="--layer-x:32.8125%;--layer-y:40.559895833333336%;--layer-width:8.59375%" decoding="async">
+        <img class="art reference-layer" data-art="closing-pavilion-venue-rule-right" alt="" style="--layer-x:58.59375%;--layer-y:40.559895833333336%;--layer-width:8.49609375%" decoding="async">
+        <img class="art reference-layer" data-art="closing-pavilion-venue-underline" alt="" style="--layer-x:23.6328125%;--layer-y:45.3125%;--layer-width:52.5390625%" decoding="async">
+        <img class="art reference-layer" data-art="closing-pavilion-family-rule" alt="" style="--layer-x:38.37890625%;--layer-y:61.5234375%;--layer-width:23.2421875%" decoding="async">
+        <img class="art reference-layer" data-art="closing-pavilion-contact-rule" alt="" style="--layer-x:37.109375%;--layer-y:72.00520833333333%;--layer-width:25.78125%" decoding="async">
+        <img class="art reference-layer" data-art="closing-pavilion-contact-diamond" alt="" style="--layer-x:48.2421875%;--layer-y:74.609375%;--layer-width:3.515625%" decoding="async">
+        <img class="art reference-layer" data-art="closing-pavilion-outer-drop-left" alt="" style="--layer-x:4.00390625%;--layer-y:21.354166666666668%;--layer-width:4.00390625%" decoding="async">
+        <img class="art reference-layer" data-art="closing-pavilion-outer-drop-right" alt="" style="--layer-x:91.9921875%;--layer-y:21.354166666666668%;--layer-width:4.00390625%" decoding="async">
+        <img class="art reference-layer" data-art="closing-pavilion-long-rose-drop-left" alt="" style="--layer-x:4.19921875%;--layer-y:13.736979166666666%;--layer-width:7.91015625%" decoding="async">
+        <img class="art reference-layer" data-art="closing-pavilion-long-rose-drop-right" alt="" style="--layer-x:87.890625%;--layer-y:13.736979166666666%;--layer-width:7.91015625%" decoding="async">
+        <img class="art reference-layer" data-art="closing-pavilion-middle-drop-left" alt="" style="--layer-x:8.69140625%;--layer-y:12.565104166666666%;--layer-width:8.59375%" decoding="async">
+        <img class="art reference-layer" data-art="closing-pavilion-middle-drop-right" alt="" style="--layer-x:82.71484375%;--layer-y:12.565104166666666%;--layer-width:8.59375%" decoding="async">
+        <img class="art reference-layer" data-art="closing-pavilion-high-rose-drop-left" alt="" style="--layer-x:12.890625%;--layer-y:11.783854166666666%;--layer-width:4.6875%" decoding="async">
+        <img class="art reference-layer" data-art="closing-pavilion-high-rose-drop-right" alt="" style="--layer-x:82.421875%;--layer-y:11.783854166666666%;--layer-width:4.6875%" decoding="async">
+        <img class="art reference-layer" data-art="closing-pavilion-inner-rose-drop-left" alt="" style="--layer-x:12.98828125%;--layer-y:17.578125%;--layer-width:5.37109375%" decoding="async">
+        <img class="art reference-layer" data-art="closing-pavilion-inner-rose-drop-right" alt="" style="--layer-x:81.640625%;--layer-y:17.578125%;--layer-width:5.37109375%" decoding="async">
+        <img class="art reference-layer" data-art="closing-pavilion-crystal-drop-left" alt="" style="--layer-x:16.69921875%;--layer-y:13.932291666666666%;--layer-width:4.39453125%" decoding="async">
+        <img class="art reference-layer" data-art="closing-pavilion-crystal-drop-right" alt="" style="--layer-x:78.90625%;--layer-y:13.932291666666666%;--layer-width:4.39453125%" decoding="async">
+        <img class="art reference-layer" data-art="closing-pavilion-canopy-rose-left" alt="" style="--layer-x:0.0%;--layer-y:0.0%;--layer-width:49.12109375%" decoding="async">
+        <img class="art reference-layer" data-art="closing-pavilion-canopy-rose-right" alt="" style="--layer-x:50.87890625%;--layer-y:0.0%;--layer-width:49.12109375%" decoding="async">
 
         </div>
         <div class="closing-depth" aria-hidden="true"></div>
@@ -2172,8 +2205,8 @@
       <a class="event-reader-close" href="#celebrations-timeline" aria-label="Close event details"><span aria-hidden="true">×</span></a>
       <p class="event-reader-status sr-only" aria-live="polite"></p>
       <div class="event-stage">
-        <img class="event-stage-art event-stage-paper" data-art="schedule-surface" alt="" src="assets/882d8c12ca0ec8c7ce39.webp" decoding="async" loading="lazy">
-        <img class="event-stage-art event-stage-frame" data-art="schedule-surround" alt="" src="assets/5b28055b32e6a21d2ab6.webp" decoding="async" loading="lazy">
+        <img class="event-stage-art event-stage-paper" data-art="schedule-surface" alt="" decoding="async">
+        <img class="event-stage-art event-stage-frame" data-art="schedule-surround" alt="" decoding="async">
         <svg class="event-stage-art" viewBox="0 0 1000 1250" preserveAspectRatio="xMidYMin meet" aria-hidden="true" focusable="false">
           <defs>
             <filter id="event-frame-feather" x="0%" y="0%" width="100%" height="100%" primitiveUnits="objectBoundingBox" color-interpolation-filters="sRGB">
@@ -2202,8 +2235,8 @@
         </svg>
         <div class="event-palace-atmosphere" aria-hidden="true">
           <div class="event-palace-glow"></div>
-          <img class="art event-palace-lantern" data-art="celebration-lantern-center" alt="" style="--x:14%;--sway:6.8s;--delay:-2.3s" src="assets/b31b961d6a7f8e77e7de.webp" decoding="async" loading="lazy">
-          <img class="art event-palace-lantern" data-art="celebration-lantern-center" alt="" style="--x:86%;--sway:8.1s;--delay:-5.2s" src="assets/b31b961d6a7f8e77e7de.webp" decoding="async" loading="lazy">
+          <img class="art event-palace-lantern" data-art="celebration-lantern-center" alt="" style="--x:14%;--sway:6.8s;--delay:-2.3s" decoding="async">
+          <img class="art event-palace-lantern" data-art="celebration-lantern-center" alt="" style="--x:86%;--sway:8.1s;--delay:-5.2s" decoding="async">
           <span class="event-palace-light" style="--x:14%;--y:12.5%;--time:6.2s;--delay:-2.7s"></span>
           <span class="event-palace-light" style="--x:86%;--y:12.5%;--time:7.8s;--delay:-4.1s"></span>
           <span class="event-palace-light" style="--x:6.4%;--y:22%;--time:5.9s;--delay:-3.2s"></span>
@@ -2212,12 +2245,12 @@
           <span class="event-palace-light" style="--x:93.6%;--y:73%;--time:6.7s;--delay:-2.2s"></span>
           <span class="event-palace-light" style="--x:9%;--y:94%;--size:7cqw;--time:7.6s;--delay:-4.4s"></span>
           <span class="event-palace-light" style="--x:91%;--y:94%;--size:7cqw;--time:6.4s;--delay:-1.8s"></span>
-          <img class="art event-shower-petal" data-art="cover-petal-rose" alt="" style="--x:24%;--y:7%;--size:1.8cqw;--drift:-10cqw;--fall:105cqw;--time:12.9s;--delay:-5.7s" src="assets/9bc0f0582686c38532ff.webp" decoding="async" loading="lazy">
-          <img class="art event-shower-petal" data-art="cover-petal-blush" alt="" style="--x:76%;--y:7%;--size:1.7cqw;--drift:10cqw;--fall:109cqw;--time:14.7s;--delay:-9.4s" src="assets/37fcfbdf4fc93930da22.webp" decoding="async" loading="lazy">
-          <img class="art event-shower-petal" data-art="cover-petal-curled" alt="" style="--x:36%;--y:4%;--size:1.6cqw;--drift:-7cqw;--fall:115cqw;--time:16.3s;--delay:-2.2s" src="assets/b86acefc063f0b4f0e96.webp" decoding="async" loading="lazy">
-          <img class="art event-shower-petal" data-art="cover-petal-rose" alt="" style="--x:64%;--y:4%;--size:1.7cqw;--drift:7cqw;--fall:111cqw;--time:13.8s;--delay:-7.6s" src="assets/9bc0f0582686c38532ff.webp" decoding="async" loading="lazy">
-          <img class="art event-shower-petal" data-art="cover-petal-blush" alt="" style="--x:10%;--y:17%;--size:1.6cqw;--drift:2cqw;--fall:91cqw;--time:15.2s;--delay:-4.3s" src="assets/37fcfbdf4fc93930da22.webp" decoding="async" loading="lazy">
-          <img class="art event-shower-petal" data-art="cover-petal-curled" alt="" style="--x:90%;--y:17%;--size:1.8cqw;--drift:-2cqw;--fall:95cqw;--time:16.7s;--delay:-11.3s" src="assets/b86acefc063f0b4f0e96.webp" decoding="async" loading="lazy">
+          <img class="art event-shower-petal" data-art="cover-petal-rose" alt="" style="--x:24%;--y:7%;--size:1.8cqw;--drift:-10cqw;--fall:105cqw;--time:12.9s;--delay:-5.7s" decoding="async">
+          <img class="art event-shower-petal" data-art="cover-petal-blush" alt="" style="--x:76%;--y:7%;--size:1.7cqw;--drift:10cqw;--fall:109cqw;--time:14.7s;--delay:-9.4s" decoding="async">
+          <img class="art event-shower-petal" data-art="cover-petal-curled" alt="" style="--x:36%;--y:4%;--size:1.6cqw;--drift:-7cqw;--fall:115cqw;--time:16.3s;--delay:-2.2s" decoding="async">
+          <img class="art event-shower-petal" data-art="cover-petal-rose" alt="" style="--x:64%;--y:4%;--size:1.7cqw;--drift:7cqw;--fall:111cqw;--time:13.8s;--delay:-7.6s" decoding="async">
+          <img class="art event-shower-petal" data-art="cover-petal-blush" alt="" style="--x:10%;--y:17%;--size:1.6cqw;--drift:2cqw;--fall:91cqw;--time:15.2s;--delay:-4.3s" decoding="async">
+          <img class="art event-shower-petal" data-art="cover-petal-curled" alt="" style="--x:90%;--y:17%;--size:1.8cqw;--drift:-2cqw;--fall:95cqw;--time:16.7s;--delay:-11.3s" decoding="async">
         </div>
         <div class="event-track">
           <article class="event-page" id="event-pindhani" aria-labelledby="event-pindhani-title" tabindex="-1">
@@ -2226,7 +2259,7 @@
         </header>
         <div class="event-page-copy">
           <div class="event-illustration">
-            <img class="event-couple-art" data-art="couple-caricature-pindhani" alt="Abhisek and Anmol smiling and holding a brass Pindhani tray" src="assets/5b41dfb3fa07f1d03868.webp" decoding="async" loading="lazy">
+            <img class="event-couple-art" data-art="couple-caricature-pindhani" alt="Abhisek and Anmol smiling and holding a brass Pindhani tray" decoding="async">
           </div>
           <p class="event-story">With our elders’ blessings, we begin the wedding festivities in a spirit of love and togetherness.</p>
           <dl class="event-facts">
@@ -2248,7 +2281,7 @@
         </header>
         <div class="event-page-copy">
           <div class="event-illustration">
-            <img class="event-couple-art" data-art="couple-caricature-ring-sangeet" alt="Abhisek kneeling on one knee and offering Anmol an engagement ring" src="assets/ceaf1cd7ddd39017d4c7.webp" decoding="async" loading="lazy">
+            <img class="event-couple-art" data-art="couple-caricature-ring-sangeet" alt="Abhisek kneeling on one knee and offering Anmol an engagement ring" decoding="async">
           </div>
           <p class="event-story">A promise of forever, celebrated with rings, music and love.</p>
           <dl class="event-facts">
@@ -2270,7 +2303,7 @@
         </header>
         <div class="event-page-copy">
           <div class="event-illustration">
-            <img class="event-couple-art" data-art="couple-caricature-haldi" alt="Abhisek and Anmol smiling beside one another, holding a brass turmeric bowl and marigold flowers without touching" src="assets/01e095260e34c878b754.webp" decoding="async" loading="lazy">
+            <img class="event-couple-art" data-art="couple-caricature-haldi" alt="Abhisek and Anmol smiling beside one another, holding a brass turmeric bowl and marigold flowers without touching" decoding="async">
           </div>
           <p class="event-story">A golden morning of tradition, laughter and heartfelt blessings.</p>
           <dl class="event-facts">
@@ -2292,9 +2325,9 @@
         </header>
         <div class="event-page-copy">
           <div class="event-illustration">
-            <img class="baraat-elephants" data-art="baraat-elephants" alt="Two elephants dressed in embroidered burgundy and gold" src="assets/41e994793fdb48a8e030.webp" decoding="async" loading="lazy">
-            <img class="baraat-rider" data-art="couple-caricature-baranugamana" alt="Abhisek riding an ivory horse in the wedding procession" src="assets/920fa0a4ba6c5e3e4baa.webp" decoding="async" loading="lazy">
-            <img class="baraat-guests" data-art="baraat-guests" alt="Wedding guests on foot, dancing to a dhol" src="assets/c714173c0740f8e67771.webp" decoding="async" loading="lazy">
+            <img class="baraat-elephants" data-art="baraat-elephants" alt="Two elephants dressed in embroidered burgundy and gold" decoding="async">
+            <img class="baraat-rider" data-art="couple-caricature-baranugamana" alt="Abhisek riding an ivory horse in the wedding procession" decoding="async">
+            <img class="baraat-guests" data-art="baraat-guests" alt="Wedding guests on foot, dancing to a dhol" decoding="async">
           </div>
           <p class="event-story">Join Abhisek’s wedding procession, as music and celebration fill the evening.</p>
           <dl class="event-facts">
@@ -2337,23 +2370,23 @@
                 </symbol>
               </defs>
             </svg>
-            <img class="mandap-art mandap-figure" data-art="couple-caricature-bibaha" alt="Abhisek and Anmol join hands to take their vows beside the sacred fire, beneath a red rose arch with fluted ivory pillars" src="assets/17d445f260463d84c24f.webp" decoding="async" loading="lazy">
+            <img class="mandap-art mandap-figure" data-art="couple-caricature-bibaha" alt="Abhisek and Anmol join hands to take their vows beside the sacred fire, beneath a red rose arch with fluted ivory pillars" decoding="async">
             <canvas class="mandap-clasp" width="216" height="130" aria-hidden="true" hidden></canvas>
-            <img class="mandap-art mandap-vines" data-art="bibaha-rose-climbers" alt="" src="assets/61335b1b06ab4dcb67a4.webp" decoding="async" loading="lazy">
+            <img class="mandap-art mandap-vines" data-art="bibaha-rose-climbers" alt="" decoding="async">
             <svg class="mandap-lantern" viewBox="0 0 32 68" aria-hidden="true" focusable="false" style="--x:25.1%;--y:38%;--sway:2.35s;--delay:-.9s"><use href="#mandap-lantern-art"/></svg>
             <svg class="mandap-lantern" viewBox="0 0 32 68" aria-hidden="true" focusable="false" style="--x:74.9%;--y:39%;--sway:2.8s;--delay:-2.55s"><use href="#mandap-lantern-art"/></svg>
             <div class="mandap-atmosphere" aria-hidden="true">
-              <img class="mandap-art mandap-firelight" data-art="couple-caricature-bibaha" alt="" src="assets/17d445f260463d84c24f.webp" decoding="async" loading="lazy">
+              <img class="mandap-art mandap-firelight" data-art="couple-caricature-bibaha" alt="" decoding="async">
               <span class="mandap-lights"></span>
               <span class="mandap-ember" style="--x:47%;--drift:-2.2cqw;--rise:-9cqw;--duration:3.2s;--delay:-1.1s"></span>
               <span class="mandap-ember" style="--x:49%;--drift:1.6cqw;--rise:-12cqw;--duration:3.9s;--delay:-2.4s"></span>
               <span class="mandap-ember" style="--x:50%;--drift:3.3cqw;--rise:-8cqw;--duration:2.8s;--delay:-.3s"></span>
-              <img class="mandap-petal" data-art="cover-petal-rose" alt="" style="--x:23%;--y:44%;--size:2.1cqw;--drift:-3.8cqw;--fall:24cqw;--duration:7.6s;--delay:-2.5s" src="assets/9bc0f0582686c38532ff.webp" decoding="async" loading="lazy">
-              <img class="mandap-petal" data-art="cover-petal-curled" alt="" style="--x:34%;--y:32%;--size:1.8cqw;--drift:-7cqw;--fall:26cqw;--duration:9.2s;--delay:-6.1s" src="assets/b86acefc063f0b4f0e96.webp" decoding="async" loading="lazy">
-              <img class="mandap-petal" data-art="cover-petal-rose" alt="" style="--x:45%;--y:25%;--size:1.9cqw;--drift:1.8cqw;--fall:28cqw;--duration:8.4s;--delay:-4.3s" src="assets/9bc0f0582686c38532ff.webp" decoding="async" loading="lazy">
-              <img class="mandap-petal" data-art="cover-petal-curled" alt="" style="--x:55%;--y:25%;--size:1.7cqw;--drift:3.9cqw;--fall:26cqw;--duration:9.8s;--delay:-7.8s" src="assets/b86acefc063f0b4f0e96.webp" decoding="async" loading="lazy">
-              <img class="mandap-petal" data-art="cover-petal-rose" alt="" style="--x:68%;--y:34%;--size:2.2cqw;--drift:7cqw;--fall:27cqw;--duration:8.9s;--delay:-3.2s" src="assets/9bc0f0582686c38532ff.webp" decoding="async" loading="lazy">
-              <img class="mandap-petal" data-art="cover-petal-curled" alt="" style="--x:78%;--y:43%;--size:2.3cqw;--drift:1.9cqw;--fall:24cqw;--duration:7.3s;--delay:-5.2s" src="assets/b86acefc063f0b4f0e96.webp" decoding="async" loading="lazy">
+              <img class="mandap-petal" data-art="cover-petal-rose" alt="" style="--x:23%;--y:44%;--size:2.1cqw;--drift:-3.8cqw;--fall:24cqw;--duration:7.6s;--delay:-2.5s" decoding="async">
+              <img class="mandap-petal" data-art="cover-petal-curled" alt="" style="--x:34%;--y:32%;--size:1.8cqw;--drift:-7cqw;--fall:26cqw;--duration:9.2s;--delay:-6.1s" decoding="async">
+              <img class="mandap-petal" data-art="cover-petal-rose" alt="" style="--x:45%;--y:25%;--size:1.9cqw;--drift:1.8cqw;--fall:28cqw;--duration:8.4s;--delay:-4.3s" decoding="async">
+              <img class="mandap-petal" data-art="cover-petal-curled" alt="" style="--x:55%;--y:25%;--size:1.7cqw;--drift:3.9cqw;--fall:26cqw;--duration:9.8s;--delay:-7.8s" decoding="async">
+              <img class="mandap-petal" data-art="cover-petal-rose" alt="" style="--x:68%;--y:34%;--size:2.2cqw;--drift:7cqw;--fall:27cqw;--duration:8.9s;--delay:-3.2s" decoding="async">
+              <img class="mandap-petal" data-art="cover-petal-curled" alt="" style="--x:78%;--y:43%;--size:2.3cqw;--drift:1.9cqw;--fall:24cqw;--duration:7.3s;--delay:-5.2s" decoding="async">
             </div>
           </div>
           <p class="event-story">Before the sacred fire, we take our vows for a lifetime together.</p>
@@ -2377,7 +2410,7 @@
         </header>
         <div class="event-page-copy">
           <div class="event-illustration">
-            <img class="event-couple-art" data-art="couple-caricature-reception" alt="Abhisek in a navy suit and Anmol in a red saree bow their heads slightly, each with palms joined to receive blessings" src="assets/0fe9f261e8764a8688d7.webp" decoding="async" loading="lazy">
+            <img class="event-couple-art" data-art="couple-caricature-reception" alt="Abhisek in a navy suit and Anmol in a red saree bow their heads slightly, each with palms joined to receive blessings" decoding="async">
           </div>
           <p class="event-story">Join us to bless the newlyweds and celebrate their new beginning.</p>
           <dl class="event-facts">
@@ -2396,11 +2429,11 @@
         </div>
         <div class="event-peacocks" aria-hidden="true">
           <div class="event-bird event-bird--left">
-            <img class="event-bird-base" data-art="event-peacock-left" alt="" src="assets/d4405b26900767ba3774.webp" decoding="async" loading="lazy">
+            <img class="event-bird-base" data-art="event-peacock-left" alt="" decoding="async">
             <img class="event-bird-motion" data-motion-art="event-peacock-left-motion" alt="" hidden>
           </div>
           <div class="event-bird event-bird--right">
-            <img class="event-bird-base" data-art="event-peacock-right" alt="" src="assets/91a3c553024c7e6fef1f.webp" decoding="async" loading="lazy">
+            <img class="event-bird-base" data-art="event-peacock-right" alt="" decoding="async">
             <img class="event-bird-motion" data-motion-art="event-peacock-right-motion" alt="" hidden>
           </div>
         </div>
@@ -2533,7 +2566,13 @@
       "use strict";
       const artwork = JSON.parse(document.getElementById("artwork").textContent);
 (() => {
-  // Decorative images stay visually hidden until loaded; their accessible labels remain intact.
+  const heroScope = document.querySelector(".hero");
+  const blessingScope = document.getElementById("blessing");
+  const scenes = [...document.querySelectorAll(".reference-scene")];
+  const sharedEventScope = document.querySelector(".event-stage");
+  const eventScopes = [...document.querySelectorAll(".event-page")];
+  const prepared = new WeakMap();
+
   function markReady(image) {
     if (image.naturalWidth > 0) image.setAttribute("data-art-ready", "");
   }
@@ -2542,42 +2581,94 @@
     if (image?.matches?.("img[data-art], img[data-motion-art]")) markReady(image);
   }, true);
 
-  function hydrate(scope, priority = "auto", coverOnly = false) {
-    if (!scope) return;
-    scope.querySelectorAll("[data-art]").forEach(image => {
-      if (image.hasAttribute("data-art-requested")) return;
-      if (coverOnly && image.closest("#blessing")) return;
-      if (image.closest(".event-page[hidden]")) return;
-      const source = artwork[image.dataset.art];
-      if (!source) return;
-      image.setAttribute("data-art-requested", "");
-      image.decoding = "async";
-      image.loading = "eager";
-      image.fetchPriority = priority;
-      image.draggable = false;
-      image.addEventListener("load", () => markReady(image), { once: true });
-      if (image.getAttribute("src") !== source) image.src = source;
-      if (image.complete) markReady(image);
+  function sceneImages(scope) {
+    return [...scope.querySelectorAll("[data-art], [data-motion-art]")].filter(image => {
+      if (scope === heroScope && image.closest("#blessing")) return false;
+      if (scope === sharedEventScope && image.closest(".event-page")) return false;
+      return true;
     });
   }
-  window.hydrateInvitationArtwork = hydrate;
-  hydrate(document.querySelector(".hero"), "high", true);
 
-  // Prepare the shrine after the cover, without decoding every event and animation at startup.
-  const prepareBlessing = () => hydrate(document.getElementById("blessing"), "low");
-  if ("requestIdleCallback" in window) window.requestIdleCallback(prepareBlessing, { timeout: 1200 });
-  else setTimeout(prepareBlessing, 600);
+  function loadImage(image, source, priority) {
+    if (!source) return Promise.resolve();
+    image.decoding = "async";
+    image.loading = "eager";
+    image.fetchPriority = priority;
+    image.draggable = false;
+    image.setAttribute("data-art-requested", "");
+    return new Promise(resolve => {
+      let settled = false;
+      function finish() {
+        if (settled) return;
+        settled = true;
+        markReady(image);
+        resolve();
+      }
+      function loaded() {
+        if (typeof image.decode === "function") Promise.resolve().then(() => image.decode()).catch(() => {}).then(finish);
+        else finish();
+      }
+      image.addEventListener("load", loaded, { once: true });
+      image.addEventListener("error", finish, { once: true });
+      if (image.getAttribute("src") !== source) image.src = source;
+      if (image.complete && image.naturalWidth > 0) loaded();
+    });
+  }
+
+  function loadFonts(scope) {
+    if (!document.fonts?.load) return [];
+    const fonts = ['500 20px "Cover Serif"', 'italic 600 24px "Invitation Display"'];
+    if (scope === heroScope) fonts.push('600 20px "Cover Serif"');
+    if (scope === blessingScope) fonts.push('700 24px "Blessing Odia"');
+    if (scope.classList.contains("couple")) fonts.push('700 60px "Couple Calligraphy"', 'italic 700 18px "Couple Text"', 'italic 400 16px "Couple Text"');
+    if (scope.classList.contains("closing")) fonts.push('400 40px "Cover Calligraphy"');
+    return fonts.map(font => document.fonts.load(font).catch(() => {}));
+  }
+
+  function prepareScene(scope, priority = "low") {
+    if (!scope) return Promise.resolve();
+    const images = sceneImages(scope);
+    if (priority === "high") images.forEach(image => { image.fetchPriority = priority; });
+    if (prepared.has(scope)) return prepared.get(scope);
+    scope.setAttribute("aria-busy", "true");
+    const tasks = images.map(image => loadImage(image, artwork[image.dataset.art || image.dataset.motionArt], priority));
+    scope.querySelectorAll("[data-plaque-art]").forEach(element => {
+      if (scope === heroScope && element.closest("#blessing")) return;
+        tasks.push(loadImage(new Image(), artwork[element.dataset.plaqueArt], priority));
+    });
+    const ready = Promise.allSettled([...tasks, ...loadFonts(scope)]).then(() => {
+      scope.setAttribute("data-scene-ready", "");
+      scope.removeAttribute("aria-busy");
+    });
+    prepared.set(scope, ready);
+    return ready;
+  }
+  window.prepareInvitationScene = prepareScene;
+  window.hydrateInvitationArtwork = prepareScene;
+  window.prepareInvitationEvent = (page, priority = "high") => Promise.all([
+    prepareScene(sharedEventScope, priority), prepareScene(page, priority)
+  ]);
+  window.isInvitationEventReady = page => Boolean(
+    sharedEventScope?.hasAttribute("data-scene-ready") && page?.hasAttribute("data-scene-ready")
+  );
+
+  async function preloadStory() {
+    for (const scene of [blessingScope, ...scenes]) await prepareScene(scene);
+    await prepareScene(sharedEventScope);
+    for (const page of eventScopes) await prepareScene(page);
+  }
+  prepareScene(heroScope, "high").then(() => {
+    document.documentElement.removeAttribute("data-cover-preparing");
+    // Begin the next complete scene after the cover has had a chance to paint.
+    window.requestAnimationFrame(() => { void preloadStory(); });
+  });
   if ("IntersectionObserver" in window) {
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        hydrate(entry.target);
-        observer.unobserve(entry.target);
+        if (entry.isIntersecting) { void prepareScene(entry.target, "high"); observer.unobserve(entry.target); }
       });
-    }, { rootMargin: "650px 0px" });
-    document.querySelectorAll(".reference-scene").forEach(section => observer.observe(section));
-  } else {
-    hydrate(document.getElementById("details"));
+    }, { rootMargin: "120px 0px" });
+    scenes.forEach(scene => observer.observe(scene));
   }
 })();
 
@@ -2619,8 +2710,16 @@
 
       function openInvitation() {
         if (hero.dataset.phase !== "closed") return;
-        window.hydrateInvitationArtwork?.(blessing, "high");
-        window.hydrateInvitationArtwork?.(details.querySelector(".couple"));
+        const preparing = window.prepareInvitationScene?.(blessing, "high");
+        if (preparing && !blessing.hasAttribute("data-scene-ready")) {
+          tap.disabled = true;
+          tap.setAttribute("aria-busy", "true");
+          Promise.resolve(preparing).then(() => {
+            tap.removeAttribute("aria-busy"); tap.disabled = false; openInvitation();
+          });
+          return;
+        }
+        window.prepareInvitationScene?.(details.querySelector(".couple"), "high");
         hero.dataset.phase = "opening";
         tap.disabled = true;
         if (!animation || motion.matches) {
@@ -2708,6 +2807,7 @@
       const invitation = document.getElementById("invitation");
       const timelineLinks = [...document.getElementById("celebrations-timeline").querySelectorAll("[data-event-link]")];
       let activeEvent = -1;
+      let pendingEventOpen = 0;
       let returnLink;
       let linkedEvent = eventPages.findIndex(page => location.hash === `#${page.id}`);
       let touchStart;
@@ -2805,6 +2905,18 @@
       }
 
       function openEvent(index) {
+        if (window.prepareInvitationEvent && !window.isInvitationEventReady?.(eventPages[index])) {
+          const request = ++pendingEventOpen;
+          timelineLinks[index]?.setAttribute("aria-busy", "true");
+          eventDots[index]?.setAttribute("aria-busy", "true");
+          window.prepareInvitationEvent(eventPages[index]).then(() => {
+            timelineLinks[index]?.removeAttribute("aria-busy");
+            eventDots[index]?.removeAttribute("aria-busy");
+            if (request === pendingEventOpen) openEvent(index);
+          });
+          return;
+        }
+        pendingEventOpen += 1;
         const firstOpen = activeEvent < 0;
         if (firstOpen) {
           returnLink = timelineLinks[index];
@@ -2829,12 +2941,12 @@
           updateEventTrack();
           syncClaspMotion();
         }
-        window.hydrateInvitationArtwork?.(eventReader);
         syncEventDecorations();
         if (firstOpen) eventClose.focus({ preventScroll: true });
       }
 
       function closeEventReader() {
+        pendingEventOpen += 1;
         musicHome.append(musicControls);
         eventReader.removeAttribute("data-open");
         document.documentElement.classList.remove("event-overlay-open");
