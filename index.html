@@ -594,13 +594,13 @@
     .couple-given-name { display: inline-block; }
     .couple-honorific {
       color: #785038;
-      font: italic 600 2.65cqw / 1 Invitation Display, Georgia, serif;
+      font: italic 600 max(9px, 2.65cqw) / 1 Invitation Display, Georgia, serif;
       letter-spacing: .01em;
     }
     .couple-parentage {
       margin: .35em 0 0;
       color: #5b3523;
-      font: 500 3.05cqw / 1.16 Cover Serif, Georgia, serif;
+      font: 500 max(10px, 3.05cqw) / 1.16 Cover Serif, Georgia, serif;
     }
     .couple-relationship {
       color: #735139;
@@ -690,7 +690,7 @@
       inset: 20.7% 17% auto;
       z-index: 3;
       color: #69412b;
-      font: italic 600 3.02cqw / 1.22 Invitation Display, Georgia, serif;
+      font: italic 600 max(10px, 3.02cqw) / 1.22 Invitation Display, Georgia, serif;
     }
     .events {
       inset: 0;
@@ -1000,7 +1000,11 @@
     #event-ring-sangeet .event-illustration { height: clamp(96px, 38cqw, 160px); }
     #event-reception .event-illustration { height: clamp(108px, 46cqw, 194px); }
     @container (max-width: 320px) {
-      #event-reception .event-illustration { height: clamp(100px, 42cqw, 136px); }
+      .event-title-band { height: 29cqw; padding-top: 12.7cqw; }
+      .event-page-copy { padding-bottom: 4%; }
+      :is(#event-pindhani, #event-ring-sangeet, #event-haldi) .event-illustration { height: 92px; }
+      #event-baranugamana .event-illustration { height: 94px; }
+      #event-reception .event-illustration { height: clamp(90px, 33cqw, 106px); }
     }
     .event-couple-art {
       position: absolute;
@@ -1235,7 +1239,7 @@
     }
     @container (max-width: 320px) {
       #event-bibaha .event-page-copy { padding-bottom: .16rem; }
-      .event-illustration.mandap { margin-inline: 0; }
+      .event-illustration.mandap { margin-inline: 6%; }
       #event-bibaha .event-venue { align-content: start; padding-top: .3rem; }
       #event-bibaha .event-venue-address { display: none; }
     }
@@ -1586,7 +1590,7 @@
     }
     .closing-month {
       top: 31.6%;
-      font: 500 2.85cqw / 1 Cover Serif, Georgia, serif;
+      font: 500 max(10px, 2.85cqw) / 1 Cover Serif, Georgia, serif;
       letter-spacing: .17em;
       text-transform: uppercase;
     }
@@ -1598,7 +1602,7 @@
     .save-venue > span {
       top: 41.05%;
       color: #651c23;
-      font-size: 2.7cqw;
+      font-size: max(9px, 2.7cqw);
       letter-spacing: .23em;
       text-transform: uppercase;
     }
@@ -1622,20 +1626,20 @@
     }
     .closing-message {
       top: 56.85%;
-      font: 500 3.55cqw / 1.24 Cover Serif, Georgia, serif;
+      font: 500 max(11.5px, 3.55cqw) / 1.24 Cover Serif, Georgia, serif;
     }
     .closing-compliments {
       top: 64.8%;
-      font: 500 2.55cqw / 1.2 Cover Serif, Georgia, serif;
+      font: 500 max(10px, 2.55cqw) / 1.2 Cover Serif, Georgia, serif;
     }
     .closing-hosts strong {
       top: 67.65%;
       color: #800c35;
-      font: italic 600 3.1cqw / 1.18 Invitation Display, Georgia, serif;
+      font: italic 600 max(10px, 3.1cqw) / 1.18 Invitation Display, Georgia, serif;
     }
     .closing-family {
       top: 70.45%;
-      font: 500 2.9cqw / 1.2 Cover Serif, Georgia, serif;
+      font: 500 max(10px, 2.9cqw) / 1.2 Cover Serif, Georgia, serif;
     }
     .closing-contact {
       top: 75.82%;
@@ -1643,7 +1647,7 @@
       grid-template-columns: 1fr 1fr;
       width: 64%;
       gap: 8%;
-      font: 500 3.05cqw / 1.1 Cover Serif, Georgia, serif;
+      font: 500 max(10.5px, 3.05cqw) / 1.1 Cover Serif, Georgia, serif;
       font-variant-numeric: lining-nums tabular-nums;
     }
     .closing-contact a {
