@@ -760,53 +760,54 @@
     }
     /* One content grid per alcove keeps multi-line titles, dates and the action apart. */
     .celebration-part--icon {
-      left: 16%; top: 6%; width: 68%; height: 32.5%;
+      left: 14%; top: 6%; width: 72%; height: 30%;
       object-fit: contain; scale: none; translate: none;
     }
     .celebration-part--divider { display: none; }
     .event-copy {
-      position: absolute; z-index: 1; inset: 39% 8% 6%;
-      display: grid; grid-template-rows: minmax(0, 1fr) auto auto;
-      justify-items: center; align-items: center;
-      gap: clamp(2px, .65cqw, 4px); text-align: center;
+      position: absolute; z-index: 1; inset: 39% 8% 5%;
+      display: grid; grid-template-rows: 45% 27% 28%;
+      justify-items: center; align-items: start;
+      gap: 0; text-align: center;
     }
     .event-name {
       display: block; width: 100%; margin: 0;
       color: #6e1326;
-      font: 600 3.6cqw / 1 Cover Serif, Georgia, serif;
+      font: 600 3.5cqw / 1 Cover Serif, Georgia, serif;
       white-space: nowrap;
     }
     [data-event-tile="ring-sangeet"] .event-name { font-size: 3.3cqw; line-height: 1; }
-    [data-event-tile="bibaha"] .event-name { font-size: 3.25cqw; line-height: 1; }
+    [data-event-tile="bibaha"] .event-name { font-size: 3.3cqw; line-height: 1; }
     [data-event-tile="baranugamana"] .event-name { font-size: 3.3cqw; }
     .event-summary {
       display: block; width: 100%; color: #623a25;
-      font: 500 max(10px, 2.65cqw) / 1.05 Cover Serif, Georgia, serif;
+      font: 500 2.7cqw / 1.08 Cover Serif, Georgia, serif;
       font-variant-numeric: lining-nums tabular-nums; white-space: nowrap;
     }
     .event-summary-note {
-      display: block; margin-top: .12em;
-      font: italic 600 .85em / 1.05 Invitation Display, Georgia, serif;
+      display: block; margin-top: .04em;
+      font: italic 600 .84em / 1.08 Invitation Display, Georgia, serif;
     }
     .event-action {
       position: relative; display: inline-flex; align-items: center; justify-content: center;
-      gap: .42em; width: 88%; height: clamp(18px, 5.2cqw, 29px);
-      padding: 0 8%; border-radius: 999px; isolation: isolate;
-      color: #761e32;
+      gap: .55em; width: 80%; height: clamp(18px, 5.3cqw, 30px);
+      align-self: end; padding: 0 7%; border-radius: 1.2cqw; isolation: isolate;
+      color: #fff0ce;
       font: 600 max(10px, 2.55cqw) / 1 Cover Serif, Georgia, serif;
+      letter-spacing: .015em;
       white-space: nowrap;
-      background: linear-gradient(180deg, #fff8e7, #f9e6bb 52%, #f2d49a);
-      box-shadow: 0 2px 3px #7b4b282b, inset 0 1px 2px #fffdf5;
+      background: linear-gradient(180deg, #973b4a, #702039 46%, #521328);
+      box-shadow: 0 2px 4px #5c2c2836, inset 0 1px 1px #f2bc7d55, inset 0 -1px 2px #370a20;
     }
     .event-action-border { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
     .event-action-label { position: relative; }
     .event-action-arrow {
       width: .85em; height: .85em; flex: 0 0 .85em; fill: none;
-      stroke: #9a6428; stroke-width: 1.65; stroke-linecap: round; stroke-linejoin: round;
+      stroke: #f1cd86; stroke-width: 1.65; stroke-linecap: round; stroke-linejoin: round;
     }
     .event-action-shine, .event-action-glint { fill: none; opacity: 0; stroke-linecap: round; }
-    .event-action-shine { stroke: #ffe4a0; stroke-width: 3.1; stroke-dasharray: 17 83; }
-    .event-action-glint { stroke: #fffef1; stroke-width: 3; stroke-dasharray: 2.2 97.8; }
+    .event-action-shine { stroke: #f7bd48; stroke-width: 4.4; stroke-dasharray: 22 78; }
+    .event-action-glint { stroke: #fff3c9; stroke-width: 3.1; stroke-dasharray: 4 96; }
     .event-trigger:focus-visible {
       outline: 2px solid #8a2440; outline-offset: -2px; border-radius: 45% 45% 3% 3%;
     }
@@ -818,7 +819,7 @@
       .event-action { transition: filter .25s, scale .2s; }
       .schedule[data-lighting="playing"] .event-action-shine,
       .schedule[data-lighting="playing"] .event-action-glint {
-        animation: event-border-circuit 6.6s linear infinite;
+        animation: event-border-circuit 5.8s linear infinite;
       }
       .event:nth-child(2) { --action-delay: -1.1s; }
       .event:nth-child(3) { --action-delay: -2.2s; }
@@ -830,9 +831,8 @@
       .event-trigger[aria-busy="true"] .event-action-arrow { animation: scene-preparing 1.2s linear infinite; }
     }
     @keyframes event-border-circuit {
-      0% { stroke-dashoffset: 0; opacity: 0; }
-      8%, 82% { opacity: 1; }
-      96%, 100% { stroke-dashoffset: -100; opacity: 0; }
+      from { stroke-dashoffset: 0; opacity: 1; }
+      to { stroke-dashoffset: -100; opacity: 1; }
     }
     .celebration-lantern { transform-origin: 50% 4%; }
     .schedule-light {
@@ -1928,10 +1928,10 @@
                 <span class="event-action">
                   <svg class="event-action-border" viewBox="0 0 240 48" preserveAspectRatio="none" aria-hidden="true" focusable="false">
                     <defs><linearGradient id="action-gold-pindhani" x2="0" y2="1"><stop stop-color="#fff0b8"/><stop offset=".38" stop-color="#d4a153"/><stop offset=".7" stop-color="#a16a28"/><stop offset="1" stop-color="#f4d28d"/></linearGradient></defs>
-                    <rect class="event-action-rim" x="2" y="2" width="236" height="44" rx="22" fill="none" stroke="url(#action-gold-pindhani)" stroke-width="2.4"/>
-                    <rect x="5" y="5" width="230" height="38" rx="19" fill="none" stroke="#e5c084" stroke-width=".7"/>
-                    <rect class="event-action-shine" x="2" y="2" width="236" height="44" rx="22" pathLength="100"/>
-                    <rect class="event-action-glint" x="2" y="2" width="236" height="44" rx="22" pathLength="100"/>
+                    <rect class="event-action-rim" x="2" y="2" width="236" height="44" rx="9" fill="none" stroke="url(#action-gold-pindhani)" stroke-width="2.4"/>
+                    <rect x="5" y="5" width="230" height="38" rx="7" fill="none" stroke="#e5c084" stroke-width=".7"/>
+                    <rect class="event-action-shine" x="2" y="2" width="236" height="44" rx="9" pathLength="100"/>
+                    <rect class="event-action-glint" x="2" y="2" width="236" height="44" rx="9" pathLength="100"/>
                   </svg>
                   <span class="event-action-label">View details</span>
                   <svg class="event-action-arrow" viewBox="0 0 18 18" aria-hidden="true" focusable="false"><path d="M3 9h11m-4-4 4 4-4 4"/></svg>
@@ -1952,10 +1952,10 @@
                 <span class="event-action">
                   <svg class="event-action-border" viewBox="0 0 240 48" preserveAspectRatio="none" aria-hidden="true" focusable="false">
                     <defs><linearGradient id="action-gold-ring-sangeet" x2="0" y2="1"><stop stop-color="#fff0b8"/><stop offset=".38" stop-color="#d4a153"/><stop offset=".7" stop-color="#a16a28"/><stop offset="1" stop-color="#f4d28d"/></linearGradient></defs>
-                    <rect class="event-action-rim" x="2" y="2" width="236" height="44" rx="22" fill="none" stroke="url(#action-gold-ring-sangeet)" stroke-width="2.4"/>
-                    <rect x="5" y="5" width="230" height="38" rx="19" fill="none" stroke="#e5c084" stroke-width=".7"/>
-                    <rect class="event-action-shine" x="2" y="2" width="236" height="44" rx="22" pathLength="100"/>
-                    <rect class="event-action-glint" x="2" y="2" width="236" height="44" rx="22" pathLength="100"/>
+                    <rect class="event-action-rim" x="2" y="2" width="236" height="44" rx="9" fill="none" stroke="url(#action-gold-ring-sangeet)" stroke-width="2.4"/>
+                    <rect x="5" y="5" width="230" height="38" rx="7" fill="none" stroke="#e5c084" stroke-width=".7"/>
+                    <rect class="event-action-shine" x="2" y="2" width="236" height="44" rx="9" pathLength="100"/>
+                    <rect class="event-action-glint" x="2" y="2" width="236" height="44" rx="9" pathLength="100"/>
                   </svg>
                   <span class="event-action-label">View details</span>
                   <svg class="event-action-arrow" viewBox="0 0 18 18" aria-hidden="true" focusable="false"><path d="M3 9h11m-4-4 4 4-4 4"/></svg>
@@ -1976,10 +1976,10 @@
                 <span class="event-action">
                   <svg class="event-action-border" viewBox="0 0 240 48" preserveAspectRatio="none" aria-hidden="true" focusable="false">
                     <defs><linearGradient id="action-gold-haldi" x2="0" y2="1"><stop stop-color="#fff0b8"/><stop offset=".38" stop-color="#d4a153"/><stop offset=".7" stop-color="#a16a28"/><stop offset="1" stop-color="#f4d28d"/></linearGradient></defs>
-                    <rect class="event-action-rim" x="2" y="2" width="236" height="44" rx="22" fill="none" stroke="url(#action-gold-haldi)" stroke-width="2.4"/>
-                    <rect x="5" y="5" width="230" height="38" rx="19" fill="none" stroke="#e5c084" stroke-width=".7"/>
-                    <rect class="event-action-shine" x="2" y="2" width="236" height="44" rx="22" pathLength="100"/>
-                    <rect class="event-action-glint" x="2" y="2" width="236" height="44" rx="22" pathLength="100"/>
+                    <rect class="event-action-rim" x="2" y="2" width="236" height="44" rx="9" fill="none" stroke="url(#action-gold-haldi)" stroke-width="2.4"/>
+                    <rect x="5" y="5" width="230" height="38" rx="7" fill="none" stroke="#e5c084" stroke-width=".7"/>
+                    <rect class="event-action-shine" x="2" y="2" width="236" height="44" rx="9" pathLength="100"/>
+                    <rect class="event-action-glint" x="2" y="2" width="236" height="44" rx="9" pathLength="100"/>
                   </svg>
                   <span class="event-action-label">View details</span>
                   <svg class="event-action-arrow" viewBox="0 0 18 18" aria-hidden="true" focusable="false"><path d="M3 9h11m-4-4 4 4-4 4"/></svg>
@@ -2000,10 +2000,10 @@
                 <span class="event-action">
                   <svg class="event-action-border" viewBox="0 0 240 48" preserveAspectRatio="none" aria-hidden="true" focusable="false">
                     <defs><linearGradient id="action-gold-baranugamana" x2="0" y2="1"><stop stop-color="#fff0b8"/><stop offset=".38" stop-color="#d4a153"/><stop offset=".7" stop-color="#a16a28"/><stop offset="1" stop-color="#f4d28d"/></linearGradient></defs>
-                    <rect class="event-action-rim" x="2" y="2" width="236" height="44" rx="22" fill="none" stroke="url(#action-gold-baranugamana)" stroke-width="2.4"/>
-                    <rect x="5" y="5" width="230" height="38" rx="19" fill="none" stroke="#e5c084" stroke-width=".7"/>
-                    <rect class="event-action-shine" x="2" y="2" width="236" height="44" rx="22" pathLength="100"/>
-                    <rect class="event-action-glint" x="2" y="2" width="236" height="44" rx="22" pathLength="100"/>
+                    <rect class="event-action-rim" x="2" y="2" width="236" height="44" rx="9" fill="none" stroke="url(#action-gold-baranugamana)" stroke-width="2.4"/>
+                    <rect x="5" y="5" width="230" height="38" rx="7" fill="none" stroke="#e5c084" stroke-width=".7"/>
+                    <rect class="event-action-shine" x="2" y="2" width="236" height="44" rx="9" pathLength="100"/>
+                    <rect class="event-action-glint" x="2" y="2" width="236" height="44" rx="9" pathLength="100"/>
                   </svg>
                   <span class="event-action-label">View details</span>
                   <svg class="event-action-arrow" viewBox="0 0 18 18" aria-hidden="true" focusable="false"><path d="M3 9h11m-4-4 4 4-4 4"/></svg>
@@ -2024,10 +2024,10 @@
                 <span class="event-action">
                   <svg class="event-action-border" viewBox="0 0 240 48" preserveAspectRatio="none" aria-hidden="true" focusable="false">
                     <defs><linearGradient id="action-gold-bibaha" x2="0" y2="1"><stop stop-color="#fff0b8"/><stop offset=".38" stop-color="#d4a153"/><stop offset=".7" stop-color="#a16a28"/><stop offset="1" stop-color="#f4d28d"/></linearGradient></defs>
-                    <rect class="event-action-rim" x="2" y="2" width="236" height="44" rx="22" fill="none" stroke="url(#action-gold-bibaha)" stroke-width="2.4"/>
-                    <rect x="5" y="5" width="230" height="38" rx="19" fill="none" stroke="#e5c084" stroke-width=".7"/>
-                    <rect class="event-action-shine" x="2" y="2" width="236" height="44" rx="22" pathLength="100"/>
-                    <rect class="event-action-glint" x="2" y="2" width="236" height="44" rx="22" pathLength="100"/>
+                    <rect class="event-action-rim" x="2" y="2" width="236" height="44" rx="9" fill="none" stroke="url(#action-gold-bibaha)" stroke-width="2.4"/>
+                    <rect x="5" y="5" width="230" height="38" rx="7" fill="none" stroke="#e5c084" stroke-width=".7"/>
+                    <rect class="event-action-shine" x="2" y="2" width="236" height="44" rx="9" pathLength="100"/>
+                    <rect class="event-action-glint" x="2" y="2" width="236" height="44" rx="9" pathLength="100"/>
                   </svg>
                   <span class="event-action-label">View details</span>
                   <svg class="event-action-arrow" viewBox="0 0 18 18" aria-hidden="true" focusable="false"><path d="M3 9h11m-4-4 4 4-4 4"/></svg>
@@ -2048,10 +2048,10 @@
                 <span class="event-action">
                   <svg class="event-action-border" viewBox="0 0 240 48" preserveAspectRatio="none" aria-hidden="true" focusable="false">
                     <defs><linearGradient id="action-gold-reception" x2="0" y2="1"><stop stop-color="#fff0b8"/><stop offset=".38" stop-color="#d4a153"/><stop offset=".7" stop-color="#a16a28"/><stop offset="1" stop-color="#f4d28d"/></linearGradient></defs>
-                    <rect class="event-action-rim" x="2" y="2" width="236" height="44" rx="22" fill="none" stroke="url(#action-gold-reception)" stroke-width="2.4"/>
-                    <rect x="5" y="5" width="230" height="38" rx="19" fill="none" stroke="#e5c084" stroke-width=".7"/>
-                    <rect class="event-action-shine" x="2" y="2" width="236" height="44" rx="22" pathLength="100"/>
-                    <rect class="event-action-glint" x="2" y="2" width="236" height="44" rx="22" pathLength="100"/>
+                    <rect class="event-action-rim" x="2" y="2" width="236" height="44" rx="9" fill="none" stroke="url(#action-gold-reception)" stroke-width="2.4"/>
+                    <rect x="5" y="5" width="230" height="38" rx="7" fill="none" stroke="#e5c084" stroke-width=".7"/>
+                    <rect class="event-action-shine" x="2" y="2" width="236" height="44" rx="9" pathLength="100"/>
+                    <rect class="event-action-glint" x="2" y="2" width="236" height="44" rx="9" pathLength="100"/>
                   </svg>
                   <span class="event-action-label">View details</span>
                   <svg class="event-action-arrow" viewBox="0 0 18 18" aria-hidden="true" focusable="false"><path d="M3 9h11m-4-4 4 4-4 4"/></svg>
