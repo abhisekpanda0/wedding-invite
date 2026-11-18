@@ -682,7 +682,7 @@
       88%, 100% { opacity: 0; transform: translate3d(var(--drift), 61cqw, 0) rotate(168deg) scaleX(.78); }
     }
     .schedule {
-      aspect-ratio: 1018 / 1690;
+      aspect-ratio: 1018 / 1850;
       background: #f7dfbd;
     }
     .schedule-architecture, .schedule-ornaments, .schedule-lights {
@@ -707,14 +707,14 @@
     }
 
     .schedule .reference-heading {
-      inset: 12% 11% auto;
+      inset: 10.96% 11% auto;
       z-index: 3;
       color: #720d29;
       font: italic 600 8cqw / 1 Invitation Display, Georgia, serif;
       white-space: nowrap;
     }
     .schedule-intro {
-      inset: 18.9% 17% auto;
+      inset: 17.265% 17% auto;
       z-index: 3;
       color: #69412b;
       font: italic 600 max(11px, 3.16cqw) / 1.2 Invitation Display, Georgia, serif;
@@ -726,11 +726,11 @@
       display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
       column-gap: 1.768cqw; row-gap: 2.75cqw;
     }
-    .event { position: relative; min-width: 0; aspect-ratio: 406 / 367; }
+    .event { position: relative; min-width: 0; aspect-ratio: 406 / 420; }
     .schedule [data-art="celebration-outer-pillar-left"],
-    .schedule [data-art="celebration-outer-pillar-right"] { height: 116.9cqw; }
+    .schedule [data-art="celebration-outer-pillar-right"] { height: 132.61cqw; }
     .schedule [data-art="celebration-side-vine-left"],
-    .schedule [data-art="celebration-side-vine-right"] { height: 120.5cqw; }
+    .schedule [data-art="celebration-side-vine-right"] { height: 136.25cqw; }
     .event-trigger {
       position: absolute;
       inset: 0;
@@ -748,10 +748,17 @@
       opacity: 0;
       pointer-events: none;
     }
-    .celebration-part--frame {
-      inset: 0; width: 100%; height: 100%;
-      filter: drop-shadow(0 .45cqw .4cqw #86532030);
-    }
+    .event-frame { position: absolute; inset: 0; pointer-events: none; filter: drop-shadow(0 .45cqw .4cqw #86532030); }
+    .event-frame > span { position: absolute; left: 0; right: 0; overflow: hidden; }
+    .event-frame img { width: 100%; }
+    .event-frame-top { top: 0; height: 38.09524%; }
+    .event-frame-top img { top: 0; }
+    .event-frame-bottom { bottom: 0; height: 6.19048%; }
+    .event-frame-bottom img { bottom: 0; }
+    .event-frame-middle { top: 38.09524%; bottom: 6.19048%; }
+    .event-frame-middle img { top: -88.39779%; height: 202.76243%; }
+    .schedule-paper-extension { position: absolute; left: 0; right: 0; top: 130cqw; bottom: 0; overflow: hidden; }
+    .schedule-paper-extension img { top: -80cqw; left: 0; width: 100%; }
     .event-trigger::after {
       content: ""; position: absolute; z-index: -1; inset: 11% 6% 5%;
       border-radius: 44% 44% 0 0;
@@ -761,15 +768,15 @@
     }
     .event-trigger { isolation: isolate; }
     .celebration-part--icon {
-      left: 19.5%; top: 12%; width: 61%; height: 36%;
+      left: 19.5%; top: 9%; width: 61%; height: 33%;
       object-fit: contain; object-position: center;
       filter: drop-shadow(0 .5cqw .4cqw #7d431826);
     }
     .celebration-part--flowers { left: -1%; top: -1%; width: 36%; }
     .event:nth-child(even) .celebration-part--flowers { left: auto; right: -1%; }
     .event-copy {
-      position: absolute; z-index: 1; inset: 50% 9% 7.5%;
-      display: grid; grid-template-rows: 41% 32% 27%;
+      position: absolute; z-index: 1; inset: 45% 9% 7%;
+      display: grid; grid-template-rows: 43% 31% 26%;
       justify-items: center; align-items: center; text-align: center;
     }
     .event-name {
@@ -792,7 +799,7 @@
       gap: .75em; width: 79%; height: 4.4cqw; min-height: 15px;
       align-self: end; padding: 0 5%; border-radius: .55cqw; isolation: isolate;
       color: #74192f;
-      font: 600 max(9px, 2.5cqw) / 1 Cover Serif, Georgia, serif;
+      font: 600 max(9px, 2.7cqw) / 1 Cover Serif, Georgia, serif;
       letter-spacing: .02em; white-space: nowrap;
       background: linear-gradient(180deg, #fff4d9, #f4dbab 52%, #efd09c);
       box-shadow: 0 .35cqw .6cqw #73431e26, inset 0 1px #fff8e8;
@@ -1905,17 +1912,18 @@
       <section class="reference-scene schedule" id="celebrations-timeline" aria-labelledby="schedule-title" tabindex="-1">
         <div class="schedule-architecture" aria-hidden="true">
         <img class="art reference-layer" data-art="celebration-paper" alt="" style="--layer-x:0.0%;--layer-y:0.0%;--layer-width:100.0%" decoding="async">
+<span class="schedule-paper-extension"><img class="art" data-art="celebration-paper" alt="" decoding="async"></span>
         <img class="art reference-layer" data-art="celebration-outer-arch" alt="" style="--layer-x:0.0%;--layer-y:0.0%;--layer-width:100.0%" decoding="async">
-        <img class="art reference-layer" data-art="celebration-outer-pillar-left" alt="" style="--layer-x:0.0%;--layer-y:22.54437869822485%;--layer-width:8.93909626719057%" decoding="async">
-        <img class="art reference-layer" data-art="celebration-outer-pillar-right" alt="" style="--layer-x:91.06090373280944%;--layer-y:22.54437869822485%;--layer-width:8.93909626719057%" decoding="async">
-        <img class="art reference-layer" data-art="celebration-marble-steps" alt="" style="--layer-x:0.0%;--layer-y:92.60355029585799%;--layer-width:100.0%" decoding="async">
+        <img class="art reference-layer" data-art="celebration-outer-pillar-left" alt="" style="--layer-x:0.0%;--layer-y:20.594594594594593%;--layer-width:8.93909626719057%" decoding="async">
+        <img class="art reference-layer" data-art="celebration-outer-pillar-right" alt="" style="--layer-x:91.06090373280944%;--layer-y:20.594594594594593%;--layer-width:8.93909626719057%" decoding="async">
+        <img class="art reference-layer" data-art="celebration-marble-steps" alt="" style="--layer-x:0.0%;--layer-y:93.24324324324324%;--layer-width:100.0%" decoding="async">
         </div>
         <h2 class="reference-copy reference-heading" id="schedule-title">The Celebrations</h2>
         <p class="reference-copy schedule-intro"><span>From family blessings to wedding vows,<br>we’d love to share every chapter with you.</span></p>
         <ol class="reference-copy events">
           <li class="event" data-event-tile="pindhani">
             <a class="event-trigger" href="#event-pindhani" aria-haspopup="dialog" data-event-link>
-              <img class="art celebration-part celebration-part--frame" data-art="celebration-bibaha-frame" alt="" decoding="async">
+              <span class="event-frame" aria-hidden="true"><span class="event-frame-top"><img class="art" data-art="celebration-bibaha-frame" alt="" decoding="async"></span><span class="event-frame-middle"><img class="art" data-art="celebration-bibaha-frame" alt="" decoding="async"></span><span class="event-frame-bottom"><img class="art" data-art="celebration-bibaha-frame" alt="" decoding="async"></span></span>
               <img class="art celebration-part celebration-part--icon" data-art="celebration-pindhani-icon" alt="" decoding="async">
               <img class="art celebration-part celebration-part--flowers" data-art="celebration-pindhani-flowers" alt="" decoding="async">
               <span class="event-copy">
@@ -1937,7 +1945,7 @@
           </li>
           <li class="event" data-event-tile="ring-sangeet">
             <a class="event-trigger" href="#event-ring-sangeet" aria-haspopup="dialog" data-event-link>
-              <img class="art celebration-part celebration-part--frame" data-art="celebration-bibaha-frame" alt="" decoding="async">
+              <span class="event-frame" aria-hidden="true"><span class="event-frame-top"><img class="art" data-art="celebration-bibaha-frame" alt="" decoding="async"></span><span class="event-frame-middle"><img class="art" data-art="celebration-bibaha-frame" alt="" decoding="async"></span><span class="event-frame-bottom"><img class="art" data-art="celebration-bibaha-frame" alt="" decoding="async"></span></span>
               <img class="art celebration-part celebration-part--icon" data-art="celebration-ring-sangeet-icon" alt="" decoding="async">
               <img class="art celebration-part celebration-part--flowers" data-art="celebration-ring-sangeet-flowers" alt="" decoding="async">
               <span class="event-copy">
@@ -1959,7 +1967,7 @@
           </li>
           <li class="event" data-event-tile="haldi">
             <a class="event-trigger" href="#event-haldi" aria-haspopup="dialog" data-event-link>
-              <img class="art celebration-part celebration-part--frame" data-art="celebration-bibaha-frame" alt="" decoding="async">
+              <span class="event-frame" aria-hidden="true"><span class="event-frame-top"><img class="art" data-art="celebration-bibaha-frame" alt="" decoding="async"></span><span class="event-frame-middle"><img class="art" data-art="celebration-bibaha-frame" alt="" decoding="async"></span><span class="event-frame-bottom"><img class="art" data-art="celebration-bibaha-frame" alt="" decoding="async"></span></span>
               <img class="art celebration-part celebration-part--icon" data-art="celebration-haldi-icon" alt="" decoding="async">
               <img class="art celebration-part celebration-part--flowers" data-art="celebration-haldi-flowers" alt="" decoding="async">
               <span class="event-copy">
@@ -1981,7 +1989,7 @@
           </li>
           <li class="event" data-event-tile="baranugamana">
             <a class="event-trigger" href="#event-baranugamana" aria-haspopup="dialog" data-event-link>
-              <img class="art celebration-part celebration-part--frame" data-art="celebration-bibaha-frame" alt="" decoding="async">
+              <span class="event-frame" aria-hidden="true"><span class="event-frame-top"><img class="art" data-art="celebration-bibaha-frame" alt="" decoding="async"></span><span class="event-frame-middle"><img class="art" data-art="celebration-bibaha-frame" alt="" decoding="async"></span><span class="event-frame-bottom"><img class="art" data-art="celebration-bibaha-frame" alt="" decoding="async"></span></span>
               <img class="art celebration-part celebration-part--icon" data-art="celebration-baranugamana-icon" alt="" decoding="async">
               <img class="art celebration-part celebration-part--flowers" data-art="celebration-baranugamana-flowers" alt="" decoding="async">
               <span class="event-copy">
@@ -2003,7 +2011,7 @@
           </li>
           <li class="event" data-event-tile="bibaha">
             <a class="event-trigger" href="#event-bibaha" aria-haspopup="dialog" data-event-link>
-              <img class="art celebration-part celebration-part--frame" data-art="celebration-bibaha-frame" alt="" decoding="async">
+              <span class="event-frame" aria-hidden="true"><span class="event-frame-top"><img class="art" data-art="celebration-bibaha-frame" alt="" decoding="async"></span><span class="event-frame-middle"><img class="art" data-art="celebration-bibaha-frame" alt="" decoding="async"></span><span class="event-frame-bottom"><img class="art" data-art="celebration-bibaha-frame" alt="" decoding="async"></span></span>
               <img class="art celebration-part celebration-part--icon" data-art="celebration-bibaha-icon" alt="" decoding="async">
               <img class="art celebration-part celebration-part--flowers" data-art="celebration-bibaha-flowers" alt="" decoding="async">
               <span class="event-copy">
@@ -2025,7 +2033,7 @@
           </li>
           <li class="event" data-event-tile="reception">
             <a class="event-trigger" href="#event-reception" aria-haspopup="dialog" data-event-link>
-              <img class="art celebration-part celebration-part--frame" data-art="celebration-bibaha-frame" alt="" decoding="async">
+              <span class="event-frame" aria-hidden="true"><span class="event-frame-top"><img class="art" data-art="celebration-bibaha-frame" alt="" decoding="async"></span><span class="event-frame-middle"><img class="art" data-art="celebration-bibaha-frame" alt="" decoding="async"></span><span class="event-frame-bottom"><img class="art" data-art="celebration-bibaha-frame" alt="" decoding="async"></span></span>
               <img class="art celebration-part celebration-part--icon" data-art="celebration-reception-icon" alt="" decoding="async">
               <img class="art celebration-part celebration-part--flowers" data-art="celebration-reception-flowers" alt="" decoding="async">
               <span class="event-copy">
@@ -2047,22 +2055,22 @@
           </li>
         </ol>
         <div class="schedule-ornaments" aria-hidden="true">
-        <img class="art reference-layer" data-art="celebration-heading-divider" alt="" style="--layer-x:35.46168958742633%;--layer-y:16.09467455621302%;--layer-width:30.25540275049116%" decoding="async">
+        <img class="art reference-layer" data-art="celebration-heading-divider" alt="" style="--layer-x:35.46168958742633%;--layer-y:14.702702702702704%;--layer-width:30.25540275049116%" decoding="async">
         <img class="art reference-layer" data-art="celebration-top-flowers-left" alt="" style="--layer-x:0.0%;--layer-y:0.0%;--layer-width:49.70530451866405%" decoding="async">
         <img class="art reference-layer" data-art="celebration-top-flowers-right" alt="" style="--layer-x:50.58939096267191%;--layer-y:0.0%;--layer-width:49.41060903732809%" decoding="async">
-        <img class="art reference-layer" data-art="celebration-side-vine-left" alt="" style="--layer-x:0.0%;--layer-y:18.63905325443787%;--layer-width:8.349705304518665%" decoding="async">
-        <img class="art reference-layer" data-art="celebration-side-vine-right" alt="" style="--layer-x:91.55206286836935%;--layer-y:18.63905325443787%;--layer-width:8.447937131630649%" decoding="async">
-        <img class="art reference-layer celebration-lantern" data-art="celebration-lantern-center" alt="" style="--layer-x:47.74066797642436%;--layer-y:1.301775147928994%;--layer-width:5.304518664047151%" decoding="async">
-        <img class="art reference-layer celebration-lantern" data-art="celebration-lantern-left-inner" alt="" style="--layer-x:35.16699410609037%;--layer-y:5.798816568047338%;--layer-width:5.697445972495088%" decoding="async">
-        <img class="art reference-layer celebration-lantern" data-art="celebration-lantern-right-inner" alt="" style="--layer-x:61.10019646365422%;--layer-y:5.798816568047338%;--layer-width:4.616895874263261%" decoding="async">
-        <img class="art reference-layer celebration-lantern" data-art="celebration-lantern-left-outer" alt="" style="--layer-x:12.86836935166994%;--layer-y:13.017751479289942%;--layer-width:6.18860510805501%" decoding="async">
-        <img class="art reference-layer celebration-lantern" data-art="celebration-lantern-right-outer" alt="" style="--layer-x:82.5147347740668%;--layer-y:13.017751479289942%;--layer-width:6.18860510805501%" decoding="async">
-        <img class="art reference-layer" data-art="celebration-steps-flowers-left" alt="" style="--layer-x:0.0%;--layer-y:90.76923076923077%;--layer-width:25.04911591355599%" decoding="async">
-        <img class="art reference-layer" data-art="celebration-steps-flowers-right" alt="" style="--layer-x:74.950884086444%;--layer-y:90.76923076923077%;--layer-width:25.04911591355599%" decoding="async">
-        <img class="art reference-layer" data-art="celebration-peacock-left" alt="" style="--layer-x:0.0%;--layer-y:81.77514792899409%;--layer-width:15.12770137524558%" decoding="async">
-        <img class="art reference-layer" data-art="celebration-peacock-right" alt="" style="--layer-x:84.87229862475442%;--layer-y:81.77514792899409%;--layer-width:15.12770137524558%" decoding="async">
-        <img class="art reference-layer" data-motion-art="celebration-peacock-left-motion" alt="" style="--layer-x:-1.1787819253438114%;--layer-y:81.06508875739645%;--layer-width:17.4852652259332%" hidden>
-        <img class="art reference-layer" data-motion-art="celebration-peacock-right-motion" alt="" style="--layer-x:83.69351669941061%;--layer-y:81.06508875739645%;--layer-width:17.4852652259332%" hidden>
+        <img class="art reference-layer" data-art="celebration-side-vine-left" alt="" style="--layer-x:0.0%;--layer-y:17.027027027027028%;--layer-width:8.349705304518665%" decoding="async">
+        <img class="art reference-layer" data-art="celebration-side-vine-right" alt="" style="--layer-x:91.55206286836935%;--layer-y:17.027027027027028%;--layer-width:8.447937131630649%" decoding="async">
+        <img class="art reference-layer celebration-lantern" data-art="celebration-lantern-center" alt="" style="--layer-x:47.74066797642436%;--layer-y:1.1891891891891893%;--layer-width:5.304518664047151%" decoding="async">
+        <img class="art reference-layer celebration-lantern" data-art="celebration-lantern-left-inner" alt="" style="--layer-x:35.16699410609037%;--layer-y:5.297297297297297%;--layer-width:5.697445972495088%" decoding="async">
+        <img class="art reference-layer celebration-lantern" data-art="celebration-lantern-right-inner" alt="" style="--layer-x:61.10019646365422%;--layer-y:5.297297297297297%;--layer-width:4.616895874263261%" decoding="async">
+        <img class="art reference-layer celebration-lantern" data-art="celebration-lantern-left-outer" alt="" style="--layer-x:12.86836935166994%;--layer-y:11.891891891891891%;--layer-width:6.18860510805501%" decoding="async">
+        <img class="art reference-layer celebration-lantern" data-art="celebration-lantern-right-outer" alt="" style="--layer-x:82.5147347740668%;--layer-y:11.891891891891891%;--layer-width:6.18860510805501%" decoding="async">
+        <img class="art reference-layer" data-art="celebration-steps-flowers-left" alt="" style="--layer-x:0.0%;--layer-y:91.56756756756756%;--layer-width:25.04911591355599%" decoding="async">
+        <img class="art reference-layer" data-art="celebration-steps-flowers-right" alt="" style="--layer-x:74.950884086444%;--layer-y:91.56756756756756%;--layer-width:25.04911591355599%" decoding="async">
+        <img class="art reference-layer" data-art="celebration-peacock-left" alt="" style="--layer-x:0.0%;--layer-y:83.35135135135135%;--layer-width:15.12770137524558%" decoding="async">
+        <img class="art reference-layer" data-art="celebration-peacock-right" alt="" style="--layer-x:84.87229862475442%;--layer-y:83.35135135135135%;--layer-width:15.12770137524558%" decoding="async">
+        <img class="art reference-layer" data-motion-art="celebration-peacock-left-motion" alt="" style="--layer-x:-1.1787819253438114%;--layer-y:82.70270270270271%;--layer-width:17.4852652259332%" hidden>
+        <img class="art reference-layer" data-motion-art="celebration-peacock-right-motion" alt="" style="--layer-x:83.69351669941061%;--layer-y:82.70270270270271%;--layer-width:17.4852652259332%" hidden>
         </div>
         <div class="schedule-petals" aria-hidden="true">
           <img class="art celebration-petal" data-art="cover-petal-rose" alt="" style="--x:20%;--y:5%;--size:1.9cqw;--drift:-12cqw;--fall:115cqw;--time:15.6s;--delay:-6.4s" decoding="async">
@@ -2073,16 +2081,16 @@
           <img class="art celebration-petal" data-art="cover-petal-curled" alt="" style="--x:90%;--y:19%;--size:1.7cqw;--drift:4cqw;--fall:94cqw;--time:17.9s;--delay:-13.4s" decoding="async">
         </div>
         <div class="schedule-lights" aria-hidden="true">
-          <span class="schedule-light" style="--x:15.9%;--y:17.3698%;--time:5.9s;--delay:-3s"></span>
-          <span class="schedule-light" style="--x:38.3%;--y:8.9592%;--time:7.2s;--delay:-1s"></span>
-          <span class="schedule-light" style="--x:50.7%;--y:6.3994%;--time:6.1s;--delay:-4s"></span>
-          <span class="schedule-light" style="--x:63.3%;--y:8.9592%;--time:8.1s;--delay:-2s"></span>
-          <span class="schedule-light" style="--x:85.6%;--y:17.3698%;--time:6.5s;--delay:-4s"></span>
-          <span class="schedule-light" style="--x:6.5%;--y:33.4598%;--time:7.4s;--delay:-3s"></span>
-          <span class="schedule-light" style="--x:93.5%;--y:33.4598%;--time:6.8s;--delay:-5s"></span>
-          <span class="schedule-light" style="--x:7%;--y:63.0799%;--time:8.3s;--delay:-2s"></span>
-          <span class="schedule-light" style="--x:93%;--y:63.0799%;--time:7.1s;--delay:-1s"></span>
-          <span class="schedule-light" style="--x:31%;--y:69.4793%;--time:2.9s;--delay:-1.6s"></span>
+          <span class="schedule-light" style="--x:15.9%;--y:15.8675%;--time:5.9s;--delay:-3s"></span>
+          <span class="schedule-light" style="--x:38.3%;--y:8.1844%;--time:7.2s;--delay:-1s"></span>
+          <span class="schedule-light" style="--x:50.7%;--y:5.8459%;--time:6.1s;--delay:-4s"></span>
+          <span class="schedule-light" style="--x:63.3%;--y:8.1844%;--time:8.1s;--delay:-2s"></span>
+          <span class="schedule-light" style="--x:85.6%;--y:15.8675%;--time:6.5s;--delay:-4s"></span>
+          <span class="schedule-light" style="--x:6.5%;--y:30.5660%;--time:7.4s;--delay:-3s"></span>
+          <span class="schedule-light" style="--x:93.5%;--y:30.5660%;--time:6.8s;--delay:-5s"></span>
+          <span class="schedule-light" style="--x:7%;--y:57.6243%;--time:8.3s;--delay:-2s"></span>
+          <span class="schedule-light" style="--x:93%;--y:57.6243%;--time:7.1s;--delay:-1s"></span>
+          <span class="schedule-light" style="--x:31%;--y:63.4703%;--time:2.9s;--delay:-1.6s"></span>
         </div>
       </section>
 
