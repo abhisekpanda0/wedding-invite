@@ -682,7 +682,7 @@
       88%, 100% { opacity: 0; transform: translate3d(var(--drift), 61cqw, 0) rotate(168deg) scaleX(.78); }
     }
     .schedule {
-      aspect-ratio: 1018 / 1545;
+      aspect-ratio: 1018 / 1690;
       background: #f7dfbd;
     }
     .schedule-architecture, .schedule-ornaments, .schedule-lights {
@@ -707,31 +707,30 @@
     }
 
     .schedule .reference-heading {
-      inset: 13.1% 11% auto;
+      inset: 12% 11% auto;
       z-index: 3;
       color: #720d29;
       font: italic 600 8cqw / 1 Invitation Display, Georgia, serif;
       white-space: nowrap;
     }
     .schedule-intro {
-      inset: 20.7% 17% auto;
+      inset: 18.9% 17% auto;
       z-index: 3;
       color: #69412b;
       font: italic 600 max(11px, 3.16cqw) / 1.2 Invitation Display, Georgia, serif;
     }
+    /* Six equal alcoves assembled from individual transparent components. */
     .events {
-      inset: 0;
-      z-index: 1;
-      padding: 0;
-      list-style: none;
+      top: 40.275cqw; left: 10.511%; right: 9.136%; bottom: auto;
+      z-index: 1; padding: 0; list-style: none;
+      display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: 1.768cqw; row-gap: 2.75cqw;
     }
-    .event {
-      position: absolute;
-      left: var(--tile-x);
-      top: var(--tile-y);
-      width: var(--tile-width);
-      height: var(--tile-height);
-    }
+    .event { position: relative; min-width: 0; aspect-ratio: 406 / 367; }
+    .schedule [data-art="celebration-outer-pillar-left"],
+    .schedule [data-art="celebration-outer-pillar-right"] { height: 116.9cqw; }
+    .schedule [data-art="celebration-side-vine-left"],
+    .schedule [data-art="celebration-side-vine-right"] { height: 120.5cqw; }
     .event-trigger {
       position: absolute;
       inset: 0;
@@ -749,61 +748,60 @@
       opacity: 0;
       pointer-events: none;
     }
-    .celebration-part {
-      left: var(--part-x);
-      top: var(--part-y);
-      width: var(--part-width);
+    .celebration-part--frame {
+      inset: 0; width: 100%; height: 100%;
+      filter: drop-shadow(0 .45cqw .4cqw #86532030);
     }
+    .event-trigger::after {
+      content: ""; position: absolute; z-index: -1; inset: 11% 6% 5%;
+      border-radius: 44% 44% 0 0;
+      background: radial-gradient(ellipse at 50% 40%, #fff4de90 20%, #f0cf9c35 75%, transparent);
+      box-shadow: inset 0 1cqw 2cqw #aa6b3025;
+      pointer-events: none;
+    }
+    .event-trigger { isolation: isolate; }
     .celebration-part--icon {
-      scale: .83;
-      translate: 0 -.8cqw;
+      left: 19.5%; top: 12%; width: 61%; height: 36%;
+      object-fit: contain; object-position: center;
+      filter: drop-shadow(0 .5cqw .4cqw #7d431826);
     }
-    /* One content grid per alcove keeps multi-line titles, dates and the action apart. */
-    .celebration-part--icon {
-      left: 14%; top: 6%; width: 72%; height: 30%;
-      object-fit: contain; scale: none; translate: none;
-    }
-    .celebration-part--divider { display: none; }
+    .celebration-part--flowers { left: -1%; top: -1%; width: 36%; }
+    .event:nth-child(even) .celebration-part--flowers { left: auto; right: -1%; }
     .event-copy {
-      position: absolute; z-index: 1; inset: 39% 8% 4%;
-      display: grid; grid-template-rows: 45% 27% 28%;
-      justify-items: center; align-items: start;
-      gap: 0; text-align: center;
+      position: absolute; z-index: 1; inset: 50% 9% 7.5%;
+      display: grid; grid-template-rows: 41% 32% 27%;
+      justify-items: center; align-items: center; text-align: center;
     }
     .event-name {
-      display: block; width: 100%; margin: 0;
-      color: #6e1326;
-      font: 600 3.4cqw / 1 Cover Serif, Georgia, serif;
+      display: block;
+      width: 100%; margin: 0; color: #72152c;
+      font: 600 3.55cqw / 1.01 Cover Serif, Georgia, serif;
       white-space: nowrap;
     }
-    [data-event-tile="ring-sangeet"] .event-name { font-size: 3.4cqw; line-height: 1; }
-    [data-event-tile="bibaha"] .event-name { font-size: 3.4cqw; line-height: 1; }
-    [data-event-tile="baranugamana"] .event-name { font-size: 3.4cqw; }
     .event-summary {
-      display: block; width: 100%; color: #623a25;
-      font: 500 2.6cqw / 1.08 Cover Serif, Georgia, serif;
+      display: block; width: 100%; color: #653c26;
+      font: 500 2.68cqw / 1.1 Cover Serif, Georgia, serif;
       font-variant-numeric: lining-nums tabular-nums; white-space: nowrap;
     }
     .event-summary-note {
-      display: block; margin-top: .02em;
-      font: italic 600 .8em / 1 Invitation Display, Georgia, serif;
+      display: block; margin-top: .12em;
+      font: italic 600 .78em / 1 Invitation Display, Georgia, serif;
     }
     .event-action {
       position: relative; display: inline-flex; align-items: center; justify-content: center;
-      gap: .55em; width: 80%; height: clamp(16px, 5cqw, 28px);
-      align-self: end; padding: 0 7%; border-radius: 1.2cqw; isolation: isolate;
-      color: #fff0ce;
-      font: 600 max(10px, 2.55cqw) / 1 Cover Serif, Georgia, serif;
-      letter-spacing: .015em;
-      white-space: nowrap;
-      background: linear-gradient(180deg, #973b4a, #702039 46%, #521328);
-      box-shadow: 0 2px 4px #5c2c2836, inset 0 1px 1px #f2bc7d55, inset 0 -1px 2px #370a20;
+      gap: .75em; width: 79%; height: 4.4cqw; min-height: 15px;
+      align-self: end; padding: 0 5%; border-radius: .55cqw; isolation: isolate;
+      color: #74192f;
+      font: 600 max(9px, 2.5cqw) / 1 Cover Serif, Georgia, serif;
+      letter-spacing: .02em; white-space: nowrap;
+      background: linear-gradient(180deg, #fff4d9, #f4dbab 52%, #efd09c);
+      box-shadow: 0 .35cqw .6cqw #73431e26, inset 0 1px #fff8e8;
     }
     .event-action-border { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
     .event-action-label { position: relative; }
     .event-action-arrow {
       width: .85em; height: .85em; flex: 0 0 .85em; fill: none;
-      stroke: #f1cd86; stroke-width: 1.65; stroke-linecap: round; stroke-linejoin: round;
+      stroke: #8c5423; stroke-width: 1.65; stroke-linecap: round; stroke-linejoin: round;
     }
     .event-action-shine, .event-action-glint { fill: none; opacity: 0; stroke-linecap: round; }
     .event-action-shine { stroke: #f7bd48; stroke-width: 4.4; stroke-dasharray: 22 78; }
@@ -1908,30 +1906,28 @@
         <div class="schedule-architecture" aria-hidden="true">
         <img class="art reference-layer" data-art="celebration-paper" alt="" style="--layer-x:0.0%;--layer-y:0.0%;--layer-width:100.0%" decoding="async">
         <img class="art reference-layer" data-art="celebration-outer-arch" alt="" style="--layer-x:0.0%;--layer-y:0.0%;--layer-width:100.0%" decoding="async">
-        <img class="art reference-layer" data-art="celebration-outer-pillar-left" alt="" style="--layer-x:0.0%;--layer-y:24.660194174757283%;--layer-width:8.93909626719057%" decoding="async">
-        <img class="art reference-layer" data-art="celebration-outer-pillar-right" alt="" style="--layer-x:91.06090373280944%;--layer-y:24.660194174757283%;--layer-width:8.93909626719057%" decoding="async">
-        <img class="art reference-layer" data-art="celebration-marble-steps" alt="" style="--layer-x:0.0%;--layer-y:91.90938511326861%;--layer-width:100.0%" decoding="async">
+        <img class="art reference-layer" data-art="celebration-outer-pillar-left" alt="" style="--layer-x:0.0%;--layer-y:22.54437869822485%;--layer-width:8.93909626719057%" decoding="async">
+        <img class="art reference-layer" data-art="celebration-outer-pillar-right" alt="" style="--layer-x:91.06090373280944%;--layer-y:22.54437869822485%;--layer-width:8.93909626719057%" decoding="async">
+        <img class="art reference-layer" data-art="celebration-marble-steps" alt="" style="--layer-x:0.0%;--layer-y:92.60355029585799%;--layer-width:100.0%" decoding="async">
         </div>
         <h2 class="reference-copy reference-heading" id="schedule-title">The Celebrations</h2>
         <p class="reference-copy schedule-intro"><span>From family blessings to wedding vows,<br>we’d love to share every chapter with you.</span></p>
         <ol class="reference-copy events">
-          <li class="event" data-event-tile="pindhani" style="--tile-x:10.903732809430256%;--tile-y:24.983818770226538%;--tile-width:39.09626719056975%;--tile-height:20.58252427184466%">
+          <li class="event" data-event-tile="pindhani">
             <a class="event-trigger" href="#event-pindhani" aria-haspopup="dialog" data-event-link>
-              <img class="art celebration-part celebration-part--shade" data-art="celebration-pindhani-shade" alt="" style="--part-x:-6.532663316582915%;--part-y:-8.176100628930818%;--part-width:108.5427135678392%" decoding="async">
-              <img class="art celebration-part celebration-part--frame" data-art="celebration-pindhani-frame" alt="" style="--part-x:-1.0050251256281406%;--part-y:-1.2578616352201257%;--part-width:102.01005025125629%" decoding="async">
-              <img class="art celebration-part celebration-part--icon" data-art="celebration-pindhani-icon" alt="" style="--part-x:18.09045226130653%;--part-y:8.49056603773585%;--part-width:67.08542713567839%" decoding="async">
-              <img class="art celebration-part celebration-part--divider" data-art="celebration-pindhani-divider" alt="" style="--part-x:40.45226130653266%;--part-y:73.58490566037736%;--part-width:21.105527638190956%" decoding="async">
-              <img class="art celebration-part celebration-part--flowers" data-art="celebration-pindhani-flowers" alt="" style="--part-x:-3.0150753768844223%;--part-y:-2.20125786163522%;--part-width:37.437185929648244%" decoding="async">
+              <img class="art celebration-part celebration-part--frame" data-art="celebration-bibaha-frame" alt="" decoding="async">
+              <img class="art celebration-part celebration-part--icon" data-art="celebration-pindhani-icon" alt="" decoding="async">
+              <img class="art celebration-part celebration-part--flowers" data-art="celebration-pindhani-flowers" alt="" decoding="async">
               <span class="event-copy">
                 <span class="event-name">Pindhani</span>
                 <span class="event-summary"><time datetime="2027-01-27">27 Jan</time><span aria-hidden="true"> · </span>11:00 AM</span>
                 <span class="event-action">
                   <svg class="event-action-border" viewBox="0 0 240 48" preserveAspectRatio="none" aria-hidden="true" focusable="false">
                     <defs><linearGradient id="action-gold-pindhani" x2="0" y2="1"><stop stop-color="#fff0b8"/><stop offset=".38" stop-color="#d4a153"/><stop offset=".7" stop-color="#a16a28"/><stop offset="1" stop-color="#f4d28d"/></linearGradient></defs>
-                    <rect class="event-action-rim" x="2" y="2" width="236" height="44" rx="9" fill="none" stroke="url(#action-gold-pindhani)" stroke-width="2.4"/>
-                    <rect x="5" y="5" width="230" height="38" rx="7" fill="none" stroke="#e5c084" stroke-width=".7"/>
-                    <rect class="event-action-shine" x="2" y="2" width="236" height="44" rx="9" pathLength="100"/>
-                    <rect class="event-action-glint" x="2" y="2" width="236" height="44" rx="9" pathLength="100"/>
+                    <rect class="event-action-rim" x="2" y="2" width="236" height="44" rx="5" fill="none" stroke="url(#action-gold-pindhani)" stroke-width="2.4"/>
+                    <rect x="5" y="5" width="230" height="38" rx="3" fill="none" stroke="#e5c084" stroke-width=".7"/>
+                    <rect class="event-action-shine" x="2" y="2" width="236" height="44" rx="5" pathLength="100"/>
+                    <rect class="event-action-glint" x="2" y="2" width="236" height="44" rx="5" pathLength="100"/>
                   </svg>
                   <span class="event-action-label">View details</span>
                   <svg class="event-action-arrow" viewBox="0 0 18 18" aria-hidden="true" focusable="false"><path d="M3 9h11m-4-4 4 4-4 4"/></svg>
@@ -1939,23 +1935,21 @@
               </span>
             </a>
           </li>
-          <li class="event" data-event-tile="ring-sangeet" style="--tile-x:51.37524557956778%;--tile-y:24.983818770226538%;--tile-width:39.09626719056975%;--tile-height:20.58252427184466%">
+          <li class="event" data-event-tile="ring-sangeet">
             <a class="event-trigger" href="#event-ring-sangeet" aria-haspopup="dialog" data-event-link>
-              <img class="art celebration-part celebration-part--shade" data-art="celebration-ring-sangeet-shade" alt="" style="--part-x:-1.7587939698492463%;--part-y:-8.49056603773585%;--part-width:108.29145728643216%" decoding="async">
-              <img class="art celebration-part celebration-part--frame" data-art="celebration-ring-sangeet-frame" alt="" style="--part-x:-1.0050251256281406%;--part-y:-1.2578616352201257%;--part-width:102.01005025125629%" decoding="async">
-              <img class="art celebration-part celebration-part--icon" data-art="celebration-ring-sangeet-icon" alt="" style="--part-x:15.326633165829145%;--part-y:12.89308176100629%;--part-width:68.09045226130654%" decoding="async">
-              <img class="art celebration-part celebration-part--divider" data-art="celebration-ring-sangeet-divider" alt="" style="--part-x:40.45226130653266%;--part-y:73.58490566037736%;--part-width:21.105527638190956%" decoding="async">
-              <img class="art celebration-part celebration-part--flowers" data-art="celebration-ring-sangeet-flowers" alt="" style="--part-x:65.57788944723617%;--part-y:-1.5723270440251573%;--part-width:37.437185929648244%" decoding="async">
+              <img class="art celebration-part celebration-part--frame" data-art="celebration-bibaha-frame" alt="" decoding="async">
+              <img class="art celebration-part celebration-part--icon" data-art="celebration-ring-sangeet-icon" alt="" decoding="async">
+              <img class="art celebration-part celebration-part--flowers" data-art="celebration-ring-sangeet-flowers" alt="" decoding="async">
               <span class="event-copy">
                 <span class="event-name">Ring Ceremony<br>&amp; Sangeet</span>
                 <span class="event-summary"><time datetime="2027-01-27">27 Jan</time><span aria-hidden="true"> · </span>5:00 PM</span>
                 <span class="event-action">
                   <svg class="event-action-border" viewBox="0 0 240 48" preserveAspectRatio="none" aria-hidden="true" focusable="false">
                     <defs><linearGradient id="action-gold-ring-sangeet" x2="0" y2="1"><stop stop-color="#fff0b8"/><stop offset=".38" stop-color="#d4a153"/><stop offset=".7" stop-color="#a16a28"/><stop offset="1" stop-color="#f4d28d"/></linearGradient></defs>
-                    <rect class="event-action-rim" x="2" y="2" width="236" height="44" rx="9" fill="none" stroke="url(#action-gold-ring-sangeet)" stroke-width="2.4"/>
-                    <rect x="5" y="5" width="230" height="38" rx="7" fill="none" stroke="#e5c084" stroke-width=".7"/>
-                    <rect class="event-action-shine" x="2" y="2" width="236" height="44" rx="9" pathLength="100"/>
-                    <rect class="event-action-glint" x="2" y="2" width="236" height="44" rx="9" pathLength="100"/>
+                    <rect class="event-action-rim" x="2" y="2" width="236" height="44" rx="5" fill="none" stroke="url(#action-gold-ring-sangeet)" stroke-width="2.4"/>
+                    <rect x="5" y="5" width="230" height="38" rx="3" fill="none" stroke="#e5c084" stroke-width=".7"/>
+                    <rect class="event-action-shine" x="2" y="2" width="236" height="44" rx="5" pathLength="100"/>
+                    <rect class="event-action-glint" x="2" y="2" width="236" height="44" rx="5" pathLength="100"/>
                   </svg>
                   <span class="event-action-label">View details</span>
                   <svg class="event-action-arrow" viewBox="0 0 18 18" aria-hidden="true" focusable="false"><path d="M3 9h11m-4-4 4 4-4 4"/></svg>
@@ -1963,23 +1957,21 @@
               </span>
             </a>
           </li>
-          <li class="event" data-event-tile="haldi" style="--tile-x:10.903732809430256%;--tile-y:45.30744336569579%;--tile-width:39.09626719056975%;--tile-height:20.129449838187703%">
+          <li class="event" data-event-tile="haldi">
             <a class="event-trigger" href="#event-haldi" aria-haspopup="dialog" data-event-link>
-              <img class="art celebration-part celebration-part--shade" data-art="celebration-haldi-shade" alt="" style="--part-x:-6.532663316582915%;--part-y:3.215434083601286%;--part-width:108.5427135678392%" decoding="async">
-              <img class="art celebration-part celebration-part--frame" data-art="celebration-haldi-frame" alt="" style="--part-x:-1.0050251256281406%;--part-y:-1.2861736334405145%;--part-width:102.01005025125629%" decoding="async">
-              <img class="art celebration-part celebration-part--icon" data-art="celebration-haldi-icon" alt="" style="--part-x:15.829145728643216%;--part-y:3.536977491961415%;--part-width:59.2964824120603%" decoding="async">
-              <img class="art celebration-part celebration-part--divider" data-art="celebration-haldi-divider" alt="" style="--part-x:40.45226130653266%;--part-y:72.34726688102894%;--part-width:21.105527638190956%" decoding="async">
-              <img class="art celebration-part celebration-part--flowers" data-art="celebration-haldi-flowers" alt="" style="--part-x:-3.0150753768844223%;--part-y:-2.2508038585209005%;--part-width:37.437185929648244%" decoding="async">
+              <img class="art celebration-part celebration-part--frame" data-art="celebration-bibaha-frame" alt="" decoding="async">
+              <img class="art celebration-part celebration-part--icon" data-art="celebration-haldi-icon" alt="" decoding="async">
+              <img class="art celebration-part celebration-part--flowers" data-art="celebration-haldi-flowers" alt="" decoding="async">
               <span class="event-copy">
                 <span class="event-name">Haldi</span>
                 <span class="event-summary"><time datetime="2027-01-28">28 Jan</time><span aria-hidden="true"> · </span>10:00 AM</span>
                 <span class="event-action">
                   <svg class="event-action-border" viewBox="0 0 240 48" preserveAspectRatio="none" aria-hidden="true" focusable="false">
                     <defs><linearGradient id="action-gold-haldi" x2="0" y2="1"><stop stop-color="#fff0b8"/><stop offset=".38" stop-color="#d4a153"/><stop offset=".7" stop-color="#a16a28"/><stop offset="1" stop-color="#f4d28d"/></linearGradient></defs>
-                    <rect class="event-action-rim" x="2" y="2" width="236" height="44" rx="9" fill="none" stroke="url(#action-gold-haldi)" stroke-width="2.4"/>
-                    <rect x="5" y="5" width="230" height="38" rx="7" fill="none" stroke="#e5c084" stroke-width=".7"/>
-                    <rect class="event-action-shine" x="2" y="2" width="236" height="44" rx="9" pathLength="100"/>
-                    <rect class="event-action-glint" x="2" y="2" width="236" height="44" rx="9" pathLength="100"/>
+                    <rect class="event-action-rim" x="2" y="2" width="236" height="44" rx="5" fill="none" stroke="url(#action-gold-haldi)" stroke-width="2.4"/>
+                    <rect x="5" y="5" width="230" height="38" rx="3" fill="none" stroke="#e5c084" stroke-width=".7"/>
+                    <rect class="event-action-shine" x="2" y="2" width="236" height="44" rx="5" pathLength="100"/>
+                    <rect class="event-action-glint" x="2" y="2" width="236" height="44" rx="5" pathLength="100"/>
                   </svg>
                   <span class="event-action-label">View details</span>
                   <svg class="event-action-arrow" viewBox="0 0 18 18" aria-hidden="true" focusable="false"><path d="M3 9h11m-4-4 4 4-4 4"/></svg>
@@ -1987,23 +1979,21 @@
               </span>
             </a>
           </li>
-          <li class="event" data-event-tile="baranugamana" style="--tile-x:51.37524557956778%;--tile-y:45.30744336569579%;--tile-width:39.09626719056975%;--tile-height:20.129449838187703%">
+          <li class="event" data-event-tile="baranugamana">
             <a class="event-trigger" href="#event-baranugamana" aria-haspopup="dialog" data-event-link>
-              <img class="art celebration-part celebration-part--shade" data-art="celebration-baranugamana-shade" alt="" style="--part-x:-1.7587939698492463%;--part-y:3.215434083601286%;--part-width:108.5427135678392%" decoding="async">
-              <img class="art celebration-part celebration-part--frame" data-art="celebration-baranugamana-frame" alt="" style="--part-x:-1.0050251256281406%;--part-y:-1.2861736334405145%;--part-width:102.01005025125629%" decoding="async">
-              <img class="art celebration-part celebration-part--icon" data-art="celebration-baranugamana-icon" alt="" style="--part-x:22.36180904522613%;--part-y:0.3215434083601286%;--part-width:51.75879396984924%" decoding="async">
-              <img class="art celebration-part celebration-part--divider" data-art="celebration-baranugamana-divider" alt="" style="--part-x:40.45226130653266%;--part-y:72.34726688102894%;--part-width:21.105527638190956%" decoding="async">
-              <img class="art celebration-part celebration-part--flowers" data-art="celebration-baranugamana-flowers" alt="" style="--part-x:65.57788944723617%;--part-y:-2.2508038585209005%;--part-width:37.437185929648244%" decoding="async">
+              <img class="art celebration-part celebration-part--frame" data-art="celebration-bibaha-frame" alt="" decoding="async">
+              <img class="art celebration-part celebration-part--icon" data-art="celebration-baranugamana-icon" alt="" decoding="async">
+              <img class="art celebration-part celebration-part--flowers" data-art="celebration-baranugamana-flowers" alt="" decoding="async">
               <span class="event-copy">
                 <span class="event-name">Baranugamana</span>
                 <span class="event-summary"><time datetime="2027-01-28">28 Jan</time><span aria-hidden="true"> · </span>7:00 PM</span>
                 <span class="event-action">
                   <svg class="event-action-border" viewBox="0 0 240 48" preserveAspectRatio="none" aria-hidden="true" focusable="false">
                     <defs><linearGradient id="action-gold-baranugamana" x2="0" y2="1"><stop stop-color="#fff0b8"/><stop offset=".38" stop-color="#d4a153"/><stop offset=".7" stop-color="#a16a28"/><stop offset="1" stop-color="#f4d28d"/></linearGradient></defs>
-                    <rect class="event-action-rim" x="2" y="2" width="236" height="44" rx="9" fill="none" stroke="url(#action-gold-baranugamana)" stroke-width="2.4"/>
-                    <rect x="5" y="5" width="230" height="38" rx="7" fill="none" stroke="#e5c084" stroke-width=".7"/>
-                    <rect class="event-action-shine" x="2" y="2" width="236" height="44" rx="9" pathLength="100"/>
-                    <rect class="event-action-glint" x="2" y="2" width="236" height="44" rx="9" pathLength="100"/>
+                    <rect class="event-action-rim" x="2" y="2" width="236" height="44" rx="5" fill="none" stroke="url(#action-gold-baranugamana)" stroke-width="2.4"/>
+                    <rect x="5" y="5" width="230" height="38" rx="3" fill="none" stroke="#e5c084" stroke-width=".7"/>
+                    <rect class="event-action-shine" x="2" y="2" width="236" height="44" rx="5" pathLength="100"/>
+                    <rect class="event-action-glint" x="2" y="2" width="236" height="44" rx="5" pathLength="100"/>
                   </svg>
                   <span class="event-action-label">View details</span>
                   <svg class="event-action-arrow" viewBox="0 0 18 18" aria-hidden="true" focusable="false"><path d="M3 9h11m-4-4 4 4-4 4"/></svg>
@@ -2011,23 +2001,21 @@
               </span>
             </a>
           </li>
-          <li class="event" data-event-tile="bibaha" style="--tile-x:10.903732809430256%;--tile-y:65.30744336569579%;--tile-width:39.09626719056975%;--tile-height:23.883495145631066%">
+          <li class="event" data-event-tile="bibaha">
             <a class="event-trigger" href="#event-bibaha" aria-haspopup="dialog" data-event-link>
-              <img class="art celebration-part celebration-part--shade" data-art="celebration-bibaha-shade" alt="" style="--part-x:-6.78391959798995%;--part-y:2.168021680216802%;--part-width:108.79396984924622%" decoding="async">
-              <img class="art celebration-part celebration-part--frame" data-art="celebration-bibaha-frame" alt="" style="--part-x:-1.0050251256281406%;--part-y:-1.084010840108401%;--part-width:102.01005025125629%" decoding="async">
-              <img class="art celebration-part celebration-part--icon" data-art="celebration-bibaha-icon" alt="" style="--part-x:15.075376884422111%;--part-y:5.420054200542006%;--part-width:70.85427135678393%" decoding="async">
-              <img class="art celebration-part celebration-part--divider" data-art="celebration-bibaha-divider" alt="" style="--part-x:40.45226130653266%;--part-y:71.54471544715447%;--part-width:21.105527638190956%" decoding="async">
-              <img class="art celebration-part celebration-part--flowers" data-art="celebration-bibaha-flowers" alt="" style="--part-x:-3.0150753768844223%;--part-y:-1.897018970189702%;--part-width:37.437185929648244%" decoding="async">
+              <img class="art celebration-part celebration-part--frame" data-art="celebration-bibaha-frame" alt="" decoding="async">
+              <img class="art celebration-part celebration-part--icon" data-art="celebration-bibaha-icon" alt="" decoding="async">
+              <img class="art celebration-part celebration-part--flowers" data-art="celebration-bibaha-flowers" alt="" decoding="async">
               <span class="event-copy">
                 <span class="event-name">Bibaha<br>Panigrahana</span>
                 <span class="event-summary"><time datetime="2027-01-28">28 Jan</time><span aria-hidden="true"> · </span><time datetime="2027-01-29T02:00:00+05:30">2:00 AM</time><small class="event-summary-note">Early hours of 29 Jan</small></span>
                 <span class="event-action">
                   <svg class="event-action-border" viewBox="0 0 240 48" preserveAspectRatio="none" aria-hidden="true" focusable="false">
                     <defs><linearGradient id="action-gold-bibaha" x2="0" y2="1"><stop stop-color="#fff0b8"/><stop offset=".38" stop-color="#d4a153"/><stop offset=".7" stop-color="#a16a28"/><stop offset="1" stop-color="#f4d28d"/></linearGradient></defs>
-                    <rect class="event-action-rim" x="2" y="2" width="236" height="44" rx="9" fill="none" stroke="url(#action-gold-bibaha)" stroke-width="2.4"/>
-                    <rect x="5" y="5" width="230" height="38" rx="7" fill="none" stroke="#e5c084" stroke-width=".7"/>
-                    <rect class="event-action-shine" x="2" y="2" width="236" height="44" rx="9" pathLength="100"/>
-                    <rect class="event-action-glint" x="2" y="2" width="236" height="44" rx="9" pathLength="100"/>
+                    <rect class="event-action-rim" x="2" y="2" width="236" height="44" rx="5" fill="none" stroke="url(#action-gold-bibaha)" stroke-width="2.4"/>
+                    <rect x="5" y="5" width="230" height="38" rx="3" fill="none" stroke="#e5c084" stroke-width=".7"/>
+                    <rect class="event-action-shine" x="2" y="2" width="236" height="44" rx="5" pathLength="100"/>
+                    <rect class="event-action-glint" x="2" y="2" width="236" height="44" rx="5" pathLength="100"/>
                   </svg>
                   <span class="event-action-label">View details</span>
                   <svg class="event-action-arrow" viewBox="0 0 18 18" aria-hidden="true" focusable="false"><path d="M3 9h11m-4-4 4 4-4 4"/></svg>
@@ -2035,23 +2023,21 @@
               </span>
             </a>
           </li>
-          <li class="event" data-event-tile="reception" style="--tile-x:51.37524557956778%;--tile-y:65.30744336569579%;--tile-width:39.09626719056975%;--tile-height:23.883495145631066%">
+          <li class="event" data-event-tile="reception">
             <a class="event-trigger" href="#event-reception" aria-haspopup="dialog" data-event-link>
-              <img class="art celebration-part celebration-part--shade" data-art="celebration-reception-shade" alt="" style="--part-x:-1.7587939698492463%;--part-y:2.168021680216802%;--part-width:108.5427135678392%" decoding="async">
-              <img class="art celebration-part celebration-part--frame" data-art="celebration-reception-frame" alt="" style="--part-x:-1.0050251256281406%;--part-y:-1.084010840108401%;--part-width:102.01005025125629%" decoding="async">
-              <img class="art celebration-part celebration-part--icon" data-art="celebration-reception-icon" alt="" style="--part-x:18.09045226130653%;--part-y:5.691056910569106%;--part-width:57.03517587939699%" decoding="async">
-              <img class="art celebration-part celebration-part--divider" data-art="celebration-reception-divider" alt="" style="--part-x:40.45226130653266%;--part-y:71.54471544715447%;--part-width:21.105527638190956%" decoding="async">
-              <img class="art celebration-part celebration-part--flowers" data-art="celebration-reception-flowers" alt="" style="--part-x:65.57788944723617%;--part-y:-1.897018970189702%;--part-width:37.437185929648244%" decoding="async">
+              <img class="art celebration-part celebration-part--frame" data-art="celebration-bibaha-frame" alt="" decoding="async">
+              <img class="art celebration-part celebration-part--icon" data-art="celebration-reception-icon" alt="" decoding="async">
+              <img class="art celebration-part celebration-part--flowers" data-art="celebration-reception-flowers" alt="" decoding="async">
               <span class="event-copy">
                 <span class="event-name">Reception</span>
                 <span class="event-summary"><time datetime="2027-01-29">29 Jan</time><span aria-hidden="true"> · </span><time datetime="2027-01-29T19:00:00+05:30">7:00 PM</time></span>
                 <span class="event-action">
                   <svg class="event-action-border" viewBox="0 0 240 48" preserveAspectRatio="none" aria-hidden="true" focusable="false">
                     <defs><linearGradient id="action-gold-reception" x2="0" y2="1"><stop stop-color="#fff0b8"/><stop offset=".38" stop-color="#d4a153"/><stop offset=".7" stop-color="#a16a28"/><stop offset="1" stop-color="#f4d28d"/></linearGradient></defs>
-                    <rect class="event-action-rim" x="2" y="2" width="236" height="44" rx="9" fill="none" stroke="url(#action-gold-reception)" stroke-width="2.4"/>
-                    <rect x="5" y="5" width="230" height="38" rx="7" fill="none" stroke="#e5c084" stroke-width=".7"/>
-                    <rect class="event-action-shine" x="2" y="2" width="236" height="44" rx="9" pathLength="100"/>
-                    <rect class="event-action-glint" x="2" y="2" width="236" height="44" rx="9" pathLength="100"/>
+                    <rect class="event-action-rim" x="2" y="2" width="236" height="44" rx="5" fill="none" stroke="url(#action-gold-reception)" stroke-width="2.4"/>
+                    <rect x="5" y="5" width="230" height="38" rx="3" fill="none" stroke="#e5c084" stroke-width=".7"/>
+                    <rect class="event-action-shine" x="2" y="2" width="236" height="44" rx="5" pathLength="100"/>
+                    <rect class="event-action-glint" x="2" y="2" width="236" height="44" rx="5" pathLength="100"/>
                   </svg>
                   <span class="event-action-label">View details</span>
                   <svg class="event-action-arrow" viewBox="0 0 18 18" aria-hidden="true" focusable="false"><path d="M3 9h11m-4-4 4 4-4 4"/></svg>
@@ -2061,22 +2047,22 @@
           </li>
         </ol>
         <div class="schedule-ornaments" aria-hidden="true">
-        <img class="art reference-layer" data-art="celebration-heading-divider" alt="" style="--layer-x:35.46168958742633%;--layer-y:17.60517799352751%;--layer-width:30.25540275049116%" decoding="async">
+        <img class="art reference-layer" data-art="celebration-heading-divider" alt="" style="--layer-x:35.46168958742633%;--layer-y:16.09467455621302%;--layer-width:30.25540275049116%" decoding="async">
         <img class="art reference-layer" data-art="celebration-top-flowers-left" alt="" style="--layer-x:0.0%;--layer-y:0.0%;--layer-width:49.70530451866405%" decoding="async">
         <img class="art reference-layer" data-art="celebration-top-flowers-right" alt="" style="--layer-x:50.58939096267191%;--layer-y:0.0%;--layer-width:49.41060903732809%" decoding="async">
-        <img class="art reference-layer" data-art="celebration-side-vine-left" alt="" style="--layer-x:0.0%;--layer-y:20.388349514563107%;--layer-width:8.349705304518665%" decoding="async">
-        <img class="art reference-layer" data-art="celebration-side-vine-right" alt="" style="--layer-x:91.55206286836935%;--layer-y:20.388349514563107%;--layer-width:8.447937131630649%" decoding="async">
-        <img class="art reference-layer celebration-lantern" data-art="celebration-lantern-center" alt="" style="--layer-x:47.74066797642436%;--layer-y:1.4239482200647249%;--layer-width:5.304518664047151%" decoding="async">
-        <img class="art reference-layer celebration-lantern" data-art="celebration-lantern-left-inner" alt="" style="--layer-x:35.16699410609037%;--layer-y:6.343042071197411%;--layer-width:5.697445972495088%" decoding="async">
-        <img class="art reference-layer celebration-lantern" data-art="celebration-lantern-right-inner" alt="" style="--layer-x:61.10019646365422%;--layer-y:6.343042071197411%;--layer-width:4.616895874263261%" decoding="async">
-        <img class="art reference-layer celebration-lantern" data-art="celebration-lantern-left-outer" alt="" style="--layer-x:12.86836935166994%;--layer-y:14.239482200647249%;--layer-width:6.18860510805501%" decoding="async">
-        <img class="art reference-layer celebration-lantern" data-art="celebration-lantern-right-outer" alt="" style="--layer-x:82.5147347740668%;--layer-y:14.239482200647249%;--layer-width:6.18860510805501%" decoding="async">
-        <img class="art reference-layer" data-art="celebration-steps-flowers-left" alt="" style="--layer-x:0.0%;--layer-y:89.90291262135922%;--layer-width:25.04911591355599%" decoding="async">
-        <img class="art reference-layer" data-art="celebration-steps-flowers-right" alt="" style="--layer-x:74.950884086444%;--layer-y:89.90291262135922%;--layer-width:25.04911591355599%" decoding="async">
-        <img class="art reference-layer" data-art="celebration-peacock-left" alt="" style="--layer-x:0.0%;--layer-y:80.06472491909385%;--layer-width:15.12770137524558%" decoding="async">
-        <img class="art reference-layer" data-art="celebration-peacock-right" alt="" style="--layer-x:84.87229862475442%;--layer-y:80.06472491909385%;--layer-width:15.12770137524558%" decoding="async">
-        <img class="art reference-layer" data-motion-art="celebration-peacock-left-motion" alt="" style="--layer-x:-1.1787819253438114%;--layer-y:79.28802588996764%;--layer-width:17.4852652259332%" hidden>
-        <img class="art reference-layer" data-motion-art="celebration-peacock-right-motion" alt="" style="--layer-x:83.69351669941061%;--layer-y:79.28802588996764%;--layer-width:17.4852652259332%" hidden>
+        <img class="art reference-layer" data-art="celebration-side-vine-left" alt="" style="--layer-x:0.0%;--layer-y:18.63905325443787%;--layer-width:8.349705304518665%" decoding="async">
+        <img class="art reference-layer" data-art="celebration-side-vine-right" alt="" style="--layer-x:91.55206286836935%;--layer-y:18.63905325443787%;--layer-width:8.447937131630649%" decoding="async">
+        <img class="art reference-layer celebration-lantern" data-art="celebration-lantern-center" alt="" style="--layer-x:47.74066797642436%;--layer-y:1.301775147928994%;--layer-width:5.304518664047151%" decoding="async">
+        <img class="art reference-layer celebration-lantern" data-art="celebration-lantern-left-inner" alt="" style="--layer-x:35.16699410609037%;--layer-y:5.798816568047338%;--layer-width:5.697445972495088%" decoding="async">
+        <img class="art reference-layer celebration-lantern" data-art="celebration-lantern-right-inner" alt="" style="--layer-x:61.10019646365422%;--layer-y:5.798816568047338%;--layer-width:4.616895874263261%" decoding="async">
+        <img class="art reference-layer celebration-lantern" data-art="celebration-lantern-left-outer" alt="" style="--layer-x:12.86836935166994%;--layer-y:13.017751479289942%;--layer-width:6.18860510805501%" decoding="async">
+        <img class="art reference-layer celebration-lantern" data-art="celebration-lantern-right-outer" alt="" style="--layer-x:82.5147347740668%;--layer-y:13.017751479289942%;--layer-width:6.18860510805501%" decoding="async">
+        <img class="art reference-layer" data-art="celebration-steps-flowers-left" alt="" style="--layer-x:0.0%;--layer-y:90.76923076923077%;--layer-width:25.04911591355599%" decoding="async">
+        <img class="art reference-layer" data-art="celebration-steps-flowers-right" alt="" style="--layer-x:74.950884086444%;--layer-y:90.76923076923077%;--layer-width:25.04911591355599%" decoding="async">
+        <img class="art reference-layer" data-art="celebration-peacock-left" alt="" style="--layer-x:0.0%;--layer-y:81.77514792899409%;--layer-width:15.12770137524558%" decoding="async">
+        <img class="art reference-layer" data-art="celebration-peacock-right" alt="" style="--layer-x:84.87229862475442%;--layer-y:81.77514792899409%;--layer-width:15.12770137524558%" decoding="async">
+        <img class="art reference-layer" data-motion-art="celebration-peacock-left-motion" alt="" style="--layer-x:-1.1787819253438114%;--layer-y:81.06508875739645%;--layer-width:17.4852652259332%" hidden>
+        <img class="art reference-layer" data-motion-art="celebration-peacock-right-motion" alt="" style="--layer-x:83.69351669941061%;--layer-y:81.06508875739645%;--layer-width:17.4852652259332%" hidden>
         </div>
         <div class="schedule-petals" aria-hidden="true">
           <img class="art celebration-petal" data-art="cover-petal-rose" alt="" style="--x:20%;--y:5%;--size:1.9cqw;--drift:-12cqw;--fall:115cqw;--time:15.6s;--delay:-6.4s" decoding="async">
@@ -2087,16 +2073,16 @@
           <img class="art celebration-petal" data-art="cover-petal-curled" alt="" style="--x:90%;--y:19%;--size:1.7cqw;--drift:4cqw;--fall:94cqw;--time:17.9s;--delay:-13.4s" decoding="async">
         </div>
         <div class="schedule-lights" aria-hidden="true">
-          <span class="schedule-light" style="--x:15.9%;--y:19%;--time:5.9s;--delay:-3s"></span>
-          <span class="schedule-light" style="--x:38.3%;--y:9.8%;--time:7.2s;--delay:-1s"></span>
-          <span class="schedule-light" style="--x:50.7%;--y:7%;--time:6.1s;--delay:-4s"></span>
-          <span class="schedule-light" style="--x:63.3%;--y:9.8%;--time:8.1s;--delay:-2s"></span>
-          <span class="schedule-light" style="--x:85.6%;--y:19%;--time:6.5s;--delay:-4s"></span>
-          <span class="schedule-light" style="--x:6.5%;--y:36.6%;--time:7.4s;--delay:-3s"></span>
-          <span class="schedule-light" style="--x:93.5%;--y:36.6%;--time:6.8s;--delay:-5s"></span>
-          <span class="schedule-light" style="--x:7%;--y:69%;--time:8.3s;--delay:-2s"></span>
-          <span class="schedule-light" style="--x:93%;--y:69%;--time:7.1s;--delay:-1s"></span>
-          <span class="schedule-light" style="--x:31%;--y:76%;--time:2.9s;--delay:-1.6s"></span>
+          <span class="schedule-light" style="--x:15.9%;--y:17.3698%;--time:5.9s;--delay:-3s"></span>
+          <span class="schedule-light" style="--x:38.3%;--y:8.9592%;--time:7.2s;--delay:-1s"></span>
+          <span class="schedule-light" style="--x:50.7%;--y:6.3994%;--time:6.1s;--delay:-4s"></span>
+          <span class="schedule-light" style="--x:63.3%;--y:8.9592%;--time:8.1s;--delay:-2s"></span>
+          <span class="schedule-light" style="--x:85.6%;--y:17.3698%;--time:6.5s;--delay:-4s"></span>
+          <span class="schedule-light" style="--x:6.5%;--y:33.4598%;--time:7.4s;--delay:-3s"></span>
+          <span class="schedule-light" style="--x:93.5%;--y:33.4598%;--time:6.8s;--delay:-5s"></span>
+          <span class="schedule-light" style="--x:7%;--y:63.0799%;--time:8.3s;--delay:-2s"></span>
+          <span class="schedule-light" style="--x:93%;--y:63.0799%;--time:7.1s;--delay:-1s"></span>
+          <span class="schedule-light" style="--x:31%;--y:69.4793%;--time:2.9s;--delay:-1.6s"></span>
         </div>
       </section>
 
@@ -2581,7 +2567,7 @@
   </script>
 
   <!-- Guest-facing text is editable above. The catalog embeds individual assets once each. -->
-  <script type="application/json" id="artwork">{"baraat-elephants":"assets/41e994793fdb48a8e030.webp","baraat-guests":"assets/c714173c0740f8e67771.webp","bibaha-rose-climbers":"assets/61335b1b06ab4dcb67a4.webp","blessing-altar":"assets/d113e99f2cadc9073577.webp","blessing-canopy":"assets/3ff05b600404ab483d9b.webp","blessing-crown":"assets/69682092bf3ea562f6e9.webp","blessing-diya-left":"assets/d2affb69c5e4e20a049d.webp","blessing-diya-right":"assets/19c21033a158555b722c.webp","blessing-eyes-awake":"assets/1b41e94846396501bb82.webp","blessing-eyes-closed":"assets/2d00f8834851fdc12891.webp","blessing-flame-left":"assets/827a5c5ddb13a70cdc8e.webp","blessing-flame-right":"assets/a16cb042e167bac5c171.webp","blessing-idol":"assets/c996c00fba485bd27288.webp","blessing-mushak":"assets/4df5b3b28ae67ab0b254.webp","blessing-offerings":"assets/869e601cecccdc1bca2c.webp","blessing-pillar-left":"assets/016ec87e56b7a61826e4.webp","blessing-pillar-right":"assets/1662e0e9e1a8bb4e6d11.webp","blessing-room":"assets/aacee420b38ae725fbe1.webp","celebration-baranugamana-divider":"assets/9232a700f3ae2114451c.webp","celebration-baranugamana-flowers":"assets/082104061bb2d22c3c4d.webp","celebration-baranugamana-frame":"assets/ac1947edc878bf9c82e3.webp","celebration-baranugamana-icon":"assets/c1d361fea0350ac20e25.webp","celebration-baranugamana-shade":"assets/ab3c7e362218e200e48d.webp","celebration-bibaha-divider":"assets/a2cef0d541bb15958ae0.webp","celebration-bibaha-flowers":"assets/e067691772ff09dba0e7.webp","celebration-bibaha-frame":"assets/c76df7e15c9d4de357eb.webp","celebration-bibaha-icon":"assets/bc551a00fc00429186d3.webp","celebration-bibaha-shade":"assets/7f1492a8fe390d772e70.webp","celebration-haldi-divider":"assets/4ed560bb97c8223c92c9.webp","celebration-haldi-flowers":"assets/999446cf594d0b569e3c.webp","celebration-haldi-frame":"assets/17a67f446eb0061e0097.webp","celebration-haldi-icon":"assets/de6c36d045ad57b36827.webp","celebration-haldi-shade":"assets/220e4f53afb871f760c9.webp","celebration-heading-divider":"assets/ad7af953dbc971ed6d93.webp","celebration-lantern-center":"assets/b31b961d6a7f8e77e7de.webp","celebration-lantern-left-inner":"assets/9030f1cbe930c45f8630.webp","celebration-lantern-left-outer":"assets/29e1aca5407a4b0a935f.webp","celebration-lantern-right-inner":"assets/22376b1db12d76965afd.webp","celebration-lantern-right-outer":"assets/c1a067f35d25d24acfa6.webp","celebration-marble-steps":"assets/3cf3e1d6b5c044b26c45.webp","celebration-outer-arch":"assets/c3eba9bea56b06392d0f.webp","celebration-outer-pillar-left":"assets/9b7959977656e764d98b.webp","celebration-outer-pillar-right":"assets/62a3d02cb47bbcb94745.webp","celebration-paper":"assets/6af778bd4d5e50da1c02.webp","celebration-peacock-left":"assets/62f12c6f72b162ee0e7a.webp","celebration-peacock-left-motion":"assets/70d2153f36ccc4d2c8dc.webp","celebration-peacock-right":"assets/fced99282cd21cde9b05.webp","celebration-peacock-right-motion":"assets/d5605139006301a631df.webp","celebration-pindhani-divider":"assets/c7543b01ff53a947ca5c.webp","celebration-pindhani-flowers":"assets/48036044e50ef5babe2c.webp","celebration-pindhani-frame":"assets/d32e564d7cb3c73c7267.webp","celebration-pindhani-icon":"assets/4a8fa3d69874bf23c7fb.webp","celebration-pindhani-shade":"assets/010c990fbf6c4c9c3eb4.webp","celebration-reception-divider":"assets/4eaad80893b47b3f618e.webp","celebration-reception-flowers":"assets/7eeaa392b6cd16dd90d3.webp","celebration-reception-frame":"assets/37a5c28db54cc34af0b6.webp","celebration-reception-icon":"assets/5dd711f01db735839412.webp","celebration-reception-shade":"assets/2126928897bdb16e5c3f.webp","celebration-ring-sangeet-divider":"assets/dbe27ae75195bd7a6f08.webp","celebration-ring-sangeet-flowers":"assets/7b1a8d8ab2998c9f256c.webp","celebration-ring-sangeet-frame":"assets/a2a1b816e0676a414cfa.webp","celebration-ring-sangeet-icon":"assets/c9179b1fc22d8d2ba77d.webp","celebration-ring-sangeet-shade":"assets/0d9f1680beeaf7d20c74.webp","celebration-side-vine-left":"assets/0bf42fa46855f4b48c25.webp","celebration-side-vine-right":"assets/cb006f08e7b6e5f0c057.webp","celebration-steps-flowers-left":"assets/427e6c3f37102fbb6991.webp","celebration-steps-flowers-right":"assets/54e0b044731cbb48d997.webp","celebration-top-flowers-left":"assets/bd951189e79c649264fa.webp","celebration-top-flowers-right":"assets/03ce8d78eda8316f6dd8.webp","closing-pavilion-arch":"assets/a56c31eb031b7796c0df.webp","closing-pavilion-bottom-rose-left":"assets/a735dab0e55149de7a0a.webp","closing-pavilion-bottom-rose-right":"assets/c64beb0a1c23d553721c.webp","closing-pavilion-canopy-rose-left":"assets/387102cd41bc79feb4b2.webp","closing-pavilion-canopy-rose-right":"assets/3ddd750fb9019f0db69b.webp","closing-pavilion-column-left":"assets/6763ff4ba399cb0c7692.webp","closing-pavilion-column-right":"assets/54d57faffc0454a47394.webp","closing-pavilion-contact-diamond":"assets/54105ede208cd3ab3639.webp","closing-pavilion-contact-rule":"assets/884933dec7309dc5adf7.webp","closing-pavilion-crystal-drop-left":"assets/e5ffd331ed5056cd4825.webp","closing-pavilion-crystal-drop-right":"assets/12d8cf2a2ad3e1374516.webp","closing-pavilion-family-rule":"assets/dfad7fdf9667ce88f752.webp","closing-pavilion-high-rose-drop-left":"assets/6d2b9716d3a52cc9ec3c.webp","closing-pavilion-high-rose-drop-right":"assets/6248cd86865831ae4a67.webp","closing-pavilion-inner-rose-drop-left":"assets/d896ab9043af1ae655f3.webp","closing-pavilion-inner-rose-drop-right":"assets/3048219a749357c698a6.webp","closing-pavilion-left-chain":"assets/a9be3525b20051759adb.webp","closing-pavilion-long-rose-drop-left":"assets/7cadb384f1eca9e37615.webp","closing-pavilion-long-rose-drop-right":"assets/f536837c18f9d9f88134.webp","closing-pavilion-lotus":"assets/671072980595379e281d.webp","closing-pavilion-marble-plinth":"assets/ab5aad862561655b19cf.webp","closing-pavilion-middle-drop-left":"assets/431a67c35f18c45c9418.webp","closing-pavilion-middle-drop-right":"assets/590c6418fec7dffabe20.webp","closing-pavilion-outer-drop-left":"assets/f43d82c236e4b1c8db17.webp","closing-pavilion-outer-drop-right":"assets/0f0882e03995b311e52a.webp","closing-pavilion-paper":"assets/a29f86786b315d816aa5.webp","closing-pavilion-right-chain":"assets/7fcf4d7381b768669920.webp","closing-pavilion-rose-divider":"assets/d86ed912bb558d19aacb.webp","closing-pavilion-venue-rule-left":"assets/ce1264bf1f926d837afb.webp","closing-pavilion-venue-rule-right":"assets/c91a30bb62a4934dc712.webp","closing-pavilion-venue-underline":"assets/21a60bff5c4f57920fde.webp","couple-caricature-baranugamana":"assets/920fa0a4ba6c5e3e4baa.webp","couple-caricature-bibaha":"assets/17d445f260463d84c24f.webp","couple-caricature-haldi":"assets/01e095260e34c878b754.webp","couple-caricature-pindhani":"assets/5b41dfb3fa07f1d03868.webp","couple-caricature-reception":"assets/0fe9f261e8764a8688d7.webp","couple-caricature-ring-sangeet":"assets/ceaf1cd7ddd39017d4c7.webp","couple-garlands-motion":"assets/c99f3e32aea2ebd5914e.webp","couple-peacocks":"assets/8e0d3efc0897ab4d1d2d.webp","couple-peacocks-motion":"assets/beb32640f671ba05dd0d.webp","couple-surface":"assets/c917a853db5fc67b44e8.webp","couple-surround":"assets/e392e7e3d71e7f6cfa49.webp","cover-aa-option-2":"assets/328882b646415597ddd9.webp","cover-florals-lower-left":"assets/a1cba5f42f5e6ff2f845.webp","cover-florals-upper-left":"assets/2d9a98d8e9715bc62e67.webp","cover-florals-upper-right":"assets/9d41ff5520766c0b85c0.webp","cover-palace-portrait":"assets/ac57d7cd0585d1c3656d.webp","cover-palace-wide":"assets/4802ba38d441d636c18b.webp","cover-petal-blush":"assets/37fcfbdf4fc93930da22.webp","cover-petal-curled":"assets/b86acefc063f0b4f0e96.webp","cover-petal-rose":"assets/9bc0f0582686c38532ff.webp","cover-thali-flame":"assets/34ef728ef1aaa5602a5e.webp","cover-thali-plate":"assets/66afeb5efdb1b97aa9ac.webp","event-peacock-left":"assets/d4405b26900767ba3774.webp","event-peacock-left-motion":"assets/032ef241a80e8a32f55e.webp","event-peacock-right":"assets/91a3c553024c7e6fef1f.webp","event-peacock-right-motion":"assets/74bf19932bfaaf531149.webp","feather-single":"assets/f118afbef442436332d8.webp","feathers":"assets/06027200b8a0a64b90a8.webp","ganesha-ruby-relief":"assets/852c45a86f637c4a7fbc.webp","gilt-card":"assets/3cca6443bd49632e644a.webp","royal-tassel":"assets/8eb34ebdcde0d6638b2f.webp","schedule-surface":"assets/882d8c12ca0ec8c7ce39.webp","schedule-surround":"assets/5b28055b32e6a21d2ab6.webp","silk-ribbon":"assets/fe4654e373cfaacb6630.webp"}</script>
+  <script type="application/json" id="artwork">{"baraat-elephants":"assets/41e994793fdb48a8e030.webp","baraat-guests":"assets/c714173c0740f8e67771.webp","bibaha-rose-climbers":"assets/61335b1b06ab4dcb67a4.webp","blessing-altar":"assets/d113e99f2cadc9073577.webp","blessing-canopy":"assets/3ff05b600404ab483d9b.webp","blessing-crown":"assets/69682092bf3ea562f6e9.webp","blessing-diya-left":"assets/d2affb69c5e4e20a049d.webp","blessing-diya-right":"assets/19c21033a158555b722c.webp","blessing-eyes-awake":"assets/1b41e94846396501bb82.webp","blessing-eyes-closed":"assets/2d00f8834851fdc12891.webp","blessing-flame-left":"assets/827a5c5ddb13a70cdc8e.webp","blessing-flame-right":"assets/a16cb042e167bac5c171.webp","blessing-idol":"assets/c996c00fba485bd27288.webp","blessing-mushak":"assets/4df5b3b28ae67ab0b254.webp","blessing-offerings":"assets/869e601cecccdc1bca2c.webp","blessing-pillar-left":"assets/016ec87e56b7a61826e4.webp","blessing-pillar-right":"assets/1662e0e9e1a8bb4e6d11.webp","blessing-room":"assets/aacee420b38ae725fbe1.webp","celebration-baranugamana-flowers":"assets/082104061bb2d22c3c4d.webp","celebration-baranugamana-icon":"assets/c1d361fea0350ac20e25.webp","celebration-bibaha-flowers":"assets/e067691772ff09dba0e7.webp","celebration-bibaha-frame":"assets/c76df7e15c9d4de357eb.webp","celebration-bibaha-icon":"assets/bc551a00fc00429186d3.webp","celebration-haldi-flowers":"assets/999446cf594d0b569e3c.webp","celebration-haldi-icon":"assets/de6c36d045ad57b36827.webp","celebration-heading-divider":"assets/ad7af953dbc971ed6d93.webp","celebration-lantern-center":"assets/b31b961d6a7f8e77e7de.webp","celebration-lantern-left-inner":"assets/9030f1cbe930c45f8630.webp","celebration-lantern-left-outer":"assets/29e1aca5407a4b0a935f.webp","celebration-lantern-right-inner":"assets/22376b1db12d76965afd.webp","celebration-lantern-right-outer":"assets/c1a067f35d25d24acfa6.webp","celebration-marble-steps":"assets/3cf3e1d6b5c044b26c45.webp","celebration-outer-arch":"assets/c3eba9bea56b06392d0f.webp","celebration-outer-pillar-left":"assets/9b7959977656e764d98b.webp","celebration-outer-pillar-right":"assets/62a3d02cb47bbcb94745.webp","celebration-paper":"assets/6af778bd4d5e50da1c02.webp","celebration-peacock-left":"assets/62f12c6f72b162ee0e7a.webp","celebration-peacock-left-motion":"assets/70d2153f36ccc4d2c8dc.webp","celebration-peacock-right":"assets/fced99282cd21cde9b05.webp","celebration-peacock-right-motion":"assets/d5605139006301a631df.webp","celebration-pindhani-flowers":"assets/48036044e50ef5babe2c.webp","celebration-pindhani-icon":"assets/4a8fa3d69874bf23c7fb.webp","celebration-reception-flowers":"assets/7eeaa392b6cd16dd90d3.webp","celebration-reception-icon":"assets/5dd711f01db735839412.webp","celebration-ring-sangeet-flowers":"assets/7b1a8d8ab2998c9f256c.webp","celebration-ring-sangeet-icon":"assets/c9179b1fc22d8d2ba77d.webp","celebration-side-vine-left":"assets/0bf42fa46855f4b48c25.webp","celebration-side-vine-right":"assets/cb006f08e7b6e5f0c057.webp","celebration-steps-flowers-left":"assets/427e6c3f37102fbb6991.webp","celebration-steps-flowers-right":"assets/54e0b044731cbb48d997.webp","celebration-top-flowers-left":"assets/bd951189e79c649264fa.webp","celebration-top-flowers-right":"assets/03ce8d78eda8316f6dd8.webp","closing-pavilion-arch":"assets/a56c31eb031b7796c0df.webp","closing-pavilion-bottom-rose-left":"assets/a735dab0e55149de7a0a.webp","closing-pavilion-bottom-rose-right":"assets/c64beb0a1c23d553721c.webp","closing-pavilion-canopy-rose-left":"assets/387102cd41bc79feb4b2.webp","closing-pavilion-canopy-rose-right":"assets/3ddd750fb9019f0db69b.webp","closing-pavilion-column-left":"assets/6763ff4ba399cb0c7692.webp","closing-pavilion-column-right":"assets/54d57faffc0454a47394.webp","closing-pavilion-contact-diamond":"assets/54105ede208cd3ab3639.webp","closing-pavilion-contact-rule":"assets/884933dec7309dc5adf7.webp","closing-pavilion-crystal-drop-left":"assets/e5ffd331ed5056cd4825.webp","closing-pavilion-crystal-drop-right":"assets/12d8cf2a2ad3e1374516.webp","closing-pavilion-family-rule":"assets/dfad7fdf9667ce88f752.webp","closing-pavilion-high-rose-drop-left":"assets/6d2b9716d3a52cc9ec3c.webp","closing-pavilion-high-rose-drop-right":"assets/6248cd86865831ae4a67.webp","closing-pavilion-inner-rose-drop-left":"assets/d896ab9043af1ae655f3.webp","closing-pavilion-inner-rose-drop-right":"assets/3048219a749357c698a6.webp","closing-pavilion-left-chain":"assets/a9be3525b20051759adb.webp","closing-pavilion-long-rose-drop-left":"assets/7cadb384f1eca9e37615.webp","closing-pavilion-long-rose-drop-right":"assets/f536837c18f9d9f88134.webp","closing-pavilion-lotus":"assets/671072980595379e281d.webp","closing-pavilion-marble-plinth":"assets/ab5aad862561655b19cf.webp","closing-pavilion-middle-drop-left":"assets/431a67c35f18c45c9418.webp","closing-pavilion-middle-drop-right":"assets/590c6418fec7dffabe20.webp","closing-pavilion-outer-drop-left":"assets/f43d82c236e4b1c8db17.webp","closing-pavilion-outer-drop-right":"assets/0f0882e03995b311e52a.webp","closing-pavilion-paper":"assets/a29f86786b315d816aa5.webp","closing-pavilion-right-chain":"assets/7fcf4d7381b768669920.webp","closing-pavilion-rose-divider":"assets/d86ed912bb558d19aacb.webp","closing-pavilion-venue-rule-left":"assets/ce1264bf1f926d837afb.webp","closing-pavilion-venue-rule-right":"assets/c91a30bb62a4934dc712.webp","closing-pavilion-venue-underline":"assets/21a60bff5c4f57920fde.webp","couple-caricature-baranugamana":"assets/920fa0a4ba6c5e3e4baa.webp","couple-caricature-bibaha":"assets/17d445f260463d84c24f.webp","couple-caricature-haldi":"assets/01e095260e34c878b754.webp","couple-caricature-pindhani":"assets/5b41dfb3fa07f1d03868.webp","couple-caricature-reception":"assets/0fe9f261e8764a8688d7.webp","couple-caricature-ring-sangeet":"assets/ceaf1cd7ddd39017d4c7.webp","couple-garlands-motion":"assets/c99f3e32aea2ebd5914e.webp","couple-peacocks":"assets/8e0d3efc0897ab4d1d2d.webp","couple-peacocks-motion":"assets/beb32640f671ba05dd0d.webp","couple-surface":"assets/c917a853db5fc67b44e8.webp","couple-surround":"assets/e392e7e3d71e7f6cfa49.webp","cover-aa-option-2":"assets/328882b646415597ddd9.webp","cover-florals-lower-left":"assets/a1cba5f42f5e6ff2f845.webp","cover-florals-upper-left":"assets/2d9a98d8e9715bc62e67.webp","cover-florals-upper-right":"assets/9d41ff5520766c0b85c0.webp","cover-palace-portrait":"assets/ac57d7cd0585d1c3656d.webp","cover-palace-wide":"assets/4802ba38d441d636c18b.webp","cover-petal-blush":"assets/37fcfbdf4fc93930da22.webp","cover-petal-curled":"assets/b86acefc063f0b4f0e96.webp","cover-petal-rose":"assets/9bc0f0582686c38532ff.webp","cover-thali-flame":"assets/34ef728ef1aaa5602a5e.webp","cover-thali-plate":"assets/66afeb5efdb1b97aa9ac.webp","event-peacock-left":"assets/d4405b26900767ba3774.webp","event-peacock-left-motion":"assets/032ef241a80e8a32f55e.webp","event-peacock-right":"assets/91a3c553024c7e6fef1f.webp","event-peacock-right-motion":"assets/74bf19932bfaaf531149.webp","feather-single":"assets/f118afbef442436332d8.webp","feathers":"assets/06027200b8a0a64b90a8.webp","ganesha-ruby-relief":"assets/852c45a86f637c4a7fbc.webp","gilt-card":"assets/3cca6443bd49632e644a.webp","royal-tassel":"assets/8eb34ebdcde0d6638b2f.webp","schedule-surface":"assets/882d8c12ca0ec8c7ce39.webp","schedule-surround":"assets/5b28055b32e6a21d2ab6.webp","silk-ribbon":"assets/fe4654e373cfaacb6630.webp"}</script>
   <script>
 /*!
  * GSAP 3.13.0
